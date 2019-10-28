@@ -1,0 +1,21 @@
+{
+	"name": "savvytimer",
+	"version": "1.0.0",
+	"description": "time management platform",
+	"main": "server.js",
+	"scripts": {
+		"start": "node index.js",
+		"start-watch": "nodemon index.js",
+		"dev": "concurrently \"yarn run start-watch\" \"cd client && yarn start\""
+	},
+	"author": "DamiCODE",
+	"license": "ISC",
+	"dependencies": {
+		"concurrently": "^5.0.0",
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"mongoose": "^5.7.7",
+		"nodemon": "^1.19.4"
+	}
+}
