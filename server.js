@@ -21,7 +21,11 @@ connection.once('open', (req, res) => {
 	console.log('Database Successfully Launched!!');
 });
 
-// app.use('/', routes);
+const userDetailsRouter = require('./routes/userDetails');
+const registerRouter = require('./routes/register');
+
+app.use('/userDetails', userDetailsRouter);
+app.use('/register', registerRouter);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
