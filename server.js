@@ -1,7 +1,11 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const path = require('path');
+const express = require('express'),
+	User = require('./models/user.model'),
+	cors = require('cors'),
+	mongoose = require('mongoose'),
+	path = require('path'),
+	passport = require('passport');
+// LocalStrategy = require('passport-local'),
+// passportLocalMongoose = require('passport-local-mongoose');
 
 // require('dotenv').config();
 
@@ -11,6 +15,12 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
+//  Passport Middleware
+app.use(passport.initialize());
+
+// Passport Config
+require('./config/passport')(passport);
 
 // const uri = process.env.DB;
 const uri = 'mongodb://localhost/savvytimer';
@@ -22,10 +32,10 @@ connection.once('open', (req, res) => {
 });
 
 const userDetailsRouter = require('./routes/userDetails');
-const registerRouter = require('./routes/register');
+const userRouter = require('./routes/users');
 
 app.use('/userDetails', userDetailsRouter);
-app.use('/register', registerRouter);
+app.use('/users', userRouter);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
