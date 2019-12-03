@@ -4,8 +4,6 @@ const express = require('express'),
 	mongoose = require('mongoose'),
 	path = require('path'),
 	passport = require('passport');
-// LocalStrategy = require('passport-local'),
-// passportLocalMongoose = require('passport-local-mongoose');
 
 // require('dotenv').config();
 

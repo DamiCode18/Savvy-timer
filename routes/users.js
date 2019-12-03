@@ -6,9 +6,9 @@ const express = require('express'),
 	keys = require('../config/keys'),
 	passport = require('passport');
 
-// passport = require('passport'),
-// localStrategy = require('passport-local'),
-// passportLocalMongoose = require('passport-local-mongoose');
+//Load Input Validations
+const validateRegisterInput = require('../Validation/register');
+const validateLoginInput = require('../Validation/login');
 
 router.get('/', (req, res) => {
 	User.find().then((users) => res.json(users)).catch((err) => res.status(400).json('Error: ' + err));
@@ -17,11 +17,18 @@ router.get('/', (req, res) => {
 // Register routes and authentication
 
 router.post('/register', (req, res) => {
+	const {errors, isValid} = validateRegisterInput(req.body);
+
+	//Check Validation
+	if (!isValid) {
+		return res.status(400).json(errors);
+	}
 	User.findOne({
 		email : req.body.email
 	}).then((user) => {
 		if (user) {
-			return res.status(400).json({email: 'Email already exist'});
+			errors.email = 'Email already exist';
+			return res.status(400).json(errors);
 		} else {
 			const newUser = new User({
 				firstname : req.body.firstname,
@@ -46,28 +53,36 @@ router.post('/register', (req, res) => {
 // Login Routes and Authentication
 
 router.post('/login', (req, res) => {
+	const {errors, isValid} = validateLoginInput(req.body);
+
+	//Check Validation
+	if (!isValid) {
+		return res.status(400).json(errors);
+	}
 	const email = req.body.email;
 	const password = req.body.password;
 
 	User.findOne({email}).then((user) => {
 		if (!user) {
-			res.status(404).json({email: 'user not found'});
+			errors.email = 'User not found';
+			res.status(404).json(errors);
 		}
 
 		bcrypt.compare(password, user.password).then((isMatch) => {
 			if (isMatch) {
 				// User matched
-				const payload = {id: user.id, name: user.name}; //Create JWT Payload
+				const payload = {id: user.id, firstname: user.firstname}; //Create JWT Payload
 
 				// Sign Token
 				jwt.sign(payload, keys.secretOrKey, {expiresIn: 3600}, (err, token) => {
 					res.json({
 						success : true,
-						token   : 'Bearer' + token
+						token   : 'Bearer ' + token
 					});
 				});
 			} else {
-				return res.status(400).json({password: 'password incorrect'});
+				errors.password = 'Incorrect password';
+				return res.status(400).json(errors);
 			}
 		});
 	});
@@ -75,7 +90,10 @@ router.post('/login', (req, res) => {
 
 router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
 	res.json({
-		msg : 'success'
+		id        : req.user.id,
+		firstname : req.user.firstname,
+		lastname  : req.user.lastname,
+		email     : req.user.email
 	});
 });
 module.exports = router;
