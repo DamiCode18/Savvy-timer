@@ -20,18 +20,19 @@ module.exports = function validateRegisterInput(data) {
 	if (Validator.isEmpty(data.lastname)) {
 		errors.lastname = 'Lastname is required';
 	}
-	if (Validator.isEmpty(data.email)) {
-		errors.email = 'Email is required';
-	}
 	if (!Validator.isEmail(data.email)) {
 		errors.email = 'Invalid Email';
 	}
-	if (Validator.isEmpty(data.password)) {
-		errors.password = 'Password is required';
+	if (Validator.isEmpty(data.email)) {
+		errors.email = 'Email is required';
 	}
 	if (!Validator.isLength(data.password, {min: 8, max: 20})) {
 		errors.password = 'Password must be at least 8 characters';
 	}
+	if (Validator.isEmpty(data.password)) {
+		errors.password = 'Password is required';
+	}
+
 	return {
 		errors,
 		isValid : isEmpty(errors)
