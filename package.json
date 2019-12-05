@@ -8,9 +8,12 @@
 		"npm": "6.12.1"
 	},
 	"scripts": {
+		"client-install": "npm install --prefix client",
 		"start": "node server.js",
+		"server": "nodemon server.js",
+		"client": "npm start --prefix client",
 		"start-watch": "nodemon server.js",
-		"heroku-postbuild": "cd client && npm install && npm run build",
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
 		"dev": "concurrently \"npm run start-watch\" \"cd client && npm start\""
 	},
 	"author": "DamiCODE",
