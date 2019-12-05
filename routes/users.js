@@ -42,7 +42,10 @@ router.post('/register', (req, res) => {
 						throw err;
 					}
 					newUser.password = hash;
-					newUser.save().then((user) => res.json(user)).catch((err) => res.status(400).json('Error: ' + err));
+					newUser
+						.save()
+						.then((user) => res.json({status: user.email + ' Registered!!'}))
+						.catch((err) => res.status(400).json('Error: ' + err));
 					console.log('user added');
 				});
 			});
@@ -88,7 +91,7 @@ router.post('/login', (req, res) => {
 	});
 });
 
-router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
+router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res) => {
 	res.json({
 		id        : req.user.id,
 		firstname : req.user.firstname,
