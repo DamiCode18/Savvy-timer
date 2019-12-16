@@ -7,6 +7,7 @@ module.exports = function validateRegisterInput(data) {
 	data.lastname = !isEmpty(data.lastname) ? data.lastname : '';
 	data.email = !isEmpty(data.email) ? data.email : '';
 	data.password = !isEmpty(data.password) ? data.password : '';
+	let subString = 'techsavvyng.com';
 
 	if (!Validator.isLength(data.firstname, {min: 4, max: 15})) {
 		errors.firstname = 'Firstname must be between 4 and 15 characters';
@@ -20,7 +21,7 @@ module.exports = function validateRegisterInput(data) {
 	if (Validator.isEmpty(data.lastname)) {
 		errors.lastname = 'Lastname is required';
 	}
-	if (!Validator.isEmail(data.email)) {
+	if (!(Validator.isEmail(data.email) && data.email.split('@')[1] === subString)) {
 		errors.email = 'Invalid Email';
 	}
 	if (Validator.isEmpty(data.email)) {
