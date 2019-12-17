@@ -20,8 +20,7 @@ app.use(passport.initialize());
 // Passport Config
 require('./config/passport')(passport);
 
-// const uri = process.env.DB;
-const uri = 'mongodb://localhost/savvytimer';
+const uri = require('./config/keys').mongoURI;
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 
 const connection = mongoose.connection;
@@ -36,10 +35,10 @@ app.use('/userDetails', userDetailsRouter);
 app.use('/users', userRouter);
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, 'client', 'build')));
+	app.use(express.static('client/build'));
 
 	app.get('*', (req, res) => {
-		res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
 }
 
