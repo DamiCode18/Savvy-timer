@@ -29,14 +29,13 @@ const uri = require('./config/keys').mongoURI;
 // });
 
 mongoose.Promise = global.Promise;
+mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
+const connection = mongoose.connection;
+connection.once('open', async () => {
+	console.log('DB Connected....');
+});
 
-const connectDB = async () => {
-	mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
-	console.log('Database Successfully Launched!!');
-};
-
-module.exports = connectDB;
-
+// module.exports = connectDB;
 const userDetailsRouter = require('./routes/userDetails');
 const userRouter = require('./routes/users');
 
