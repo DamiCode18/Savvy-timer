@@ -19,7 +19,7 @@ class Login extends Component {
 			this.props.history.push('/user');
 		}
 	}
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.auth.isAuthenticated) {
 			this.props.history.push('/user');
 		}
