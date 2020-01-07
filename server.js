@@ -31,7 +31,7 @@ const uri = require('./config/keys').mongoURI;
 mongoose.Promise = global.Promise;
 mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
 const connection = mongoose.connection;
-connection.once('open', async () => {
+connection.once('open', () => {
 	console.log('DB Connected....');
 });
 
