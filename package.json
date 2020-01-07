@@ -2,7 +2,10 @@
 	"name": "savvytimer",
 	"version": "1.0.0",
 	"description": "time management platform",
-	"main": "index.js",
+	"main": "server.js",
+	"engines": {
+		"node": "12.13.0"
+	},
 	"scripts": {
 		"client-install": "npm install --prefix client",
 		"start": "node server.js",
