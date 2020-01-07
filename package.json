@@ -3,10 +3,6 @@
 	"version": "1.0.0",
 	"description": "time management platform",
 	"main": "index.js",
-	"engines": {
-		"node": "12.13.0",
-		"npm": "6.12.1"
-	},
 	"scripts": {
 		"client-install": "npm install --prefix client",
 		"start": "node server.js",
