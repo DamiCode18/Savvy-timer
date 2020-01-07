@@ -15,7 +15,7 @@ class Navbar extends Component {
 		this.props.history.push('/login');
 	};
 	render() {
-		const {isAuthenticated, user} = this.props.auth;
+		const {isAuthenticated} = this.props.auth;
 		const LoginRegLink = (
 			<ul className='navbar-nav ml-auto'>
 				<li className='nav-item active'>
@@ -81,7 +81,6 @@ class Navbar extends Component {
 		);
 		return (
 			<div>
-				{console.log(user)}
 				<nav style={{color: '#fff'}} className='container navbar navbar-expand-lg navbar-light'>
 					<Link className='navbar-brand' to='/'>
 						<img src={img1} alt='logo' style={{height: '40px', width: '40px'}} />
