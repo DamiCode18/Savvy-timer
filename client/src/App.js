@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import {setCurrentUser, logoutUser} from './actions/authActions';
@@ -11,6 +11,8 @@ import Home from './Components/Hompage/Home';
 import Login from './Components/Loginpage/Login';
 import Register from './Components/RegisterPage/Register';
 import User from './Components/User/User';
+import Admin from './Components/Admin/Admin';
+import NotFound from './Components/NotFound/NotFound';
 
 //Check for token
 if (localStorage.jwtToken) {
@@ -39,10 +41,14 @@ class App extends Component {
 				<Provider store={store}>
 					<Router>
 						<Navbar />
-						<Route path='/' exact component={Home} />
-						<Route path='/login' exact component={Login} />
-						<Route path='/register' exact component={Register} />
-						<Route path='/user' exact component={User} />
+						<Switch>
+							<Route path='/' exact component={Home} />
+							<Route path='/login' exact component={Login} />
+							<Route path='/register' exact component={Register} />
+							<Route path='/user' exact component={User} />
+							<Route path='/admin' exact component={Admin} />
+							<Route path='*' component={NotFound} />
+						</Switch>
 					</Router>
 				</Provider>
 			</div>

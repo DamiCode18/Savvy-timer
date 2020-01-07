@@ -67,7 +67,7 @@ class Navbar extends Component {
 					</Link>
 				</li>
 				<li className='nav-item'>
-					<a href='' style={{color: '#fff'}} className='nav-link btn btn-info px-4' onClick={this.logout}>
+					<a href='#' style={{color: '#fff'}} className='nav-link btn btn-info px-4' onClick={this.logout}>
 						<img
 							className='rounded-circle'
 							src={img2}
