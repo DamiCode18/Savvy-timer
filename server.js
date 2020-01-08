@@ -21,21 +21,13 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 const uri = require('./config/keys').mongoURI;
-// mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 
-// const connection = mongoose.connection;
-// connection.once('open', (req, res) => {
-// 	console.log('Database Successfully Launched!!');
-// });
-
-mongoose.Promise = global.Promise;
-mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
 const connection = mongoose.connection;
-connection.once('open', () => {
-	console.log('DB Connected....');
+connection.once('open', (req, res) => {
+	console.log('Database Successfully Launched!!');
 });
 
-// module.exports = connectDB;
 const userDetailsRouter = require('./routes/userDetails');
 const userRouter = require('./routes/users');
 
