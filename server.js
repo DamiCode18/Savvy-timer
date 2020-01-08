@@ -22,7 +22,7 @@ require('./config/passport')(passport);
 
 const uri = require('./config/keys').mongoURI;
 mongoose
-	.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: false})
+	.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
 	.then(() => {
 		console.log('Database Successfully Launched!!');
 	})
