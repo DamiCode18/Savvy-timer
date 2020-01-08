@@ -19,7 +19,7 @@ class Home extends Component {
 		return (
 			<div className='home'>
 				<div className='hdisplay text-center'>
-					<img className='' src={img4} alt='img' style={{height: '500px'}} />
+					<img className='homeImg' src={img4} alt='img'/>
 				</div>
 				<Features />
 				<div className='interest p-2 m-3'>
