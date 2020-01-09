@@ -6,6 +6,7 @@ import {logoutUser} from '../../actions/authActions';
 import {Link} from 'react-router-dom';
 import img1 from '../../images/logo.png';
 import img2 from '../../images/avatar.jpeg';
+import './Navbar.css';
 
 class Navbar extends Component {
 	logout = (e) => {
@@ -88,6 +89,7 @@ class Navbar extends Component {
 					<button
 						className='navbar-toggler'
 						type='button'
+						id='toggle'
 						data-toggle='collapse'
 						data-target='#navbar1'
 						aria-controls='navbar1'
