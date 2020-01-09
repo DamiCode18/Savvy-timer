@@ -1,17 +1,22 @@
-.notfound {
-	background: url(../../images/dougnut.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	height: 100vh;
-}
-@media only screen and (max-width: 768px) {
-	.notfound {
-		background-size: contain;
-	}
-}
 .ntf {
 	border-radius: 50px;
 	padding: 15px;
+}
+.err-page {
+	color: #050a96;
+}
+.error {
+	height: 350px;
+}
+.e404 {
+	height: 120px;
+}
+/* .notfound {
+	height: 100vh;
+} */
+@media only screen and (max-width: 768px) {
+	.error {
+		height: 250px;
+		width: 250px;
+	}
 }
