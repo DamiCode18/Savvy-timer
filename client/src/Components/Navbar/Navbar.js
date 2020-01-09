@@ -18,25 +18,25 @@ class Navbar extends Component {
 		const {isAuthenticated} = this.props.auth;
 		const LoginRegLink = (
 			<ul className='navbar-nav ml-auto'>
-				<li className='nav-item active'>
+				<li className='nav-item active m-auto'>
 					<Link className='nav-link' to='/'>
 						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						Home
 					</Link>
 				</li>
-				<li className='nav-item'>
+				<li className='nav-item m-auto'>
 					<Link className='nav-link' to='/About'>
 						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						About
 					</Link>
 				</li>
-				<li className='nav-item'>
+				<li className='nav-item m-auto'>
 					<Link className='nav-link' to='/login'>
 						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						Login
 					</Link>
 				</li>
-				<li className='nav-item'>
+				<li className='nav-item m-auto'>
 					<Link className='nav-link' to='/register'>
 						Register
 					</Link>
@@ -45,19 +45,19 @@ class Navbar extends Component {
 		);
 		const userLink = (
 			<ul className='navbar-nav ml-auto'>
-				<li className='nav-item active'>
+				<li className='nav-item active m-auto'>
 					<Link className='nav-link' to='/'>
 						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						Home
 					</Link>
 				</li>
-				<li className='nav-item active'>
+				<li className='nav-item active m-auto'>
 					<Link className='nav-link' to='/user'>
 						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						Profile
 					</Link>
 				</li>
-				<li className='nav-item'>
+				<li className='nav-item m-auto'>
 					<Link
 						style={{borderRadius: '50px', width: '100px'}}
 						className='nav-link btn btn-outline-primary px-4'
@@ -66,7 +66,7 @@ class Navbar extends Component {
 						Admin
 					</Link>
 				</li>
-				<li className='nav-item'>
+				<li className='nav-item m-auto'>
 					<a href='/' style={{color: '#fff'}} className='nav-link btn btn-info px-4' onClick={this.logout}>
 						<img
 							className='rounded-circle'
