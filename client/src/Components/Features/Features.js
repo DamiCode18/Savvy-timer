@@ -12,52 +12,82 @@ const Features = () => {
 		<div className='container features m-auto text-center'>
 			<h3 className='title mt-4'>Features</h3>
 			<div className='row'>
-				<div className='col-md-3 col-sm-4'>
+				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img1} alt='img' />
-						<p>TImer</p>
+						<p className='mr-auto'>
+							<b>Timer</b>
+						</p>
+						<p>
+							Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+							velit..." "There is no one who loves pain itself, who seeks after it and wants to have it,
+							simply because it is pain...
+						</p>
 					</div>
 				</div>
-				<div className='col-md-3 col-sm-4'>
+				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img2} alt='img' />
-						<p>Watch</p>
+						<p className='mr-auto'>
+							<b>Watch</b>
+						</p>
+						<p>
+							Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+							velit..." "There is no one who loves pain itself, who seeks after it and wants to have it,
+							simply because it is pain...
+						</p>
 					</div>
 				</div>
-				<div className='col-md-3 col-sm-4'>
+				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img3} alt='img' />
-						<p>Savvy</p>
+						<p className='mr-auto'>
+							<b>Clock</b>
+						</p>
+						<p>
+							Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+							velit..." "There is no one who loves pain itself, who seeks after it and wants to have it,
+							simply because it is pain...
+						</p>
 					</div>
 				</div>
-				<div className='col-md-3 col-sm-4'>
+				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img4} alt='img' />
-						<p>Stopwatch</p>
+						<p className='mr-auto'>
+							<b>Code</b>
+						</p>
+						<p>
+							Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+							velit..." "There is no one who loves pain itself, who seeks after it and wants to have it,
+							simply because it is pain...
+						</p>
 					</div>
 				</div>
-				<div className='col-md-3 col-sm-4'>
+				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img5} alt='img' />
-						<p>Clock</p>
+						<p className='mr-auto'>
+							<b>Leave</b>
+						</p>
+						<p>
+							Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+							velit..." "There is no one who loves pain itself, who seeks after it and wants to have it,
+							simply because it is pain...
+						</p>
 					</div>
 				</div>
-				<div className='col-md-3 col-sm-4'>
+				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img6} alt='img' />
-						<p>Time</p>
-					</div>
-				</div>
-				<div className='col-md-3 col-sm-4'>
-					<div className='card'>
-						<img src={img1} alt='img' />
-						<p>Leave</p>
-					</div>
-				</div>
-				<div className='col-md-3 col-sm-4'>
-					<div className='card'>
-						<img src={img2} alt='img' />
-						<p>Code</p>
+						<p className='mr-auto'>
+							<b>Stopwatch</b>
+						</p>
+						<p>
+							Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+							velit..." "There is no one who loves pain itself, who seeks after it and wants to have it,
+							simply because it is pain...
+						</p>
 					</div>
 				</div>
 			</div>

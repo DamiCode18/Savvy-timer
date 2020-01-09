@@ -1,5 +1,8 @@
 .features img {
-	height: 120px;
-	width: 120px;
-	margin: auto;
+	height: 50px;
+	width: 50px;
+	margin-right: auto;
+}
+.features .card {
+	border: none !important;
 }
