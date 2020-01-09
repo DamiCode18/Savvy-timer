@@ -1,0 +1,17 @@
+.notfound {
+	background: url(../../images/dougnut.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	height: 100vh;
+}
+@media only screen and (max-width: 768px) {
+	.notfound {
+		background-size: contain;
+	}
+}
+.ntf {
+	border-radius: 50%;
+	padding: 20px;
+}

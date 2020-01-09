@@ -1,6 +1,12 @@
 import React from 'react';
-
+import './NotFound.css';
+// import notFound from '../../images/notfound.png';
 const NotFound = () => {
-	return <h3>Baba shift away, Nothing is here...</h3>;
+	return (
+		<div className='container-fluid notfound'>
+			{/* <img src={notFound} alt='notfound' /> */}
+			<button className='btn btn-danger ntf'>Return to Homepage</button>
+		</div>
+	);
 };
 export default NotFound;
