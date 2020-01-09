@@ -1,20 +1,14 @@
 .home {
 	font: 14px;
 }
-.homeImg {
-	/* height: 500px; */
-	/* width: 800px; */
-}
 .interest {
 	background: #3a57c4;
-	/* height: 150px; */
 	text-align: center;
 	color: whitesmoke;
 	font-family: sans-serif;
 	font-weight: 500;
 }
 .hdisplay {
-	/* height: 460px; */
 	background: #e7e8eb;
 }
 .footer {

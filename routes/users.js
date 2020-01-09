@@ -65,30 +65,35 @@ router.post('/login', (req, res) => {
 	const email = req.body.email;
 	const password = req.body.password;
 
-	User.findOne({email}).then((user) => {
-		if (!user) {
-			errors.email = 'User not found';
-			res.status(404).json(errors);
-		}
-
-		bcrypt.compare(password, user.password).then((isMatch) => {
-			if (isMatch) {
-				// User matched
-				const payload = {id: user.id, firstname: user.firstname}; //Create JWT Payload
-
-				// Sign Token
-				jwt.sign(payload, keys.secretOrKey, {expiresIn: 1200}, (err, token) => {
-					res.json({
-						success : true,
-						token   : 'Bearer ' + token
-					});
-				});
-			} else {
-				errors.password = 'Incorrect password';
-				return res.status(400).json(errors);
+	User.findOne({email})
+		.then((user) => {
+			if (!user) {
+				errors.email = 'User not found';
+				res.status(404).json(errors);
 			}
-		});
-	});
+
+			bcrypt
+				.compare(password, user.password)
+				.then((isMatch) => {
+					if (isMatch) {
+						// User matched
+						const payload = {id: user.id, firstname: user.firstname}; //Create JWT Payload
+
+						// Sign Token
+						jwt.sign(payload, keys.secretOrKey, {expiresIn: 1200}, (err, token) => {
+							res.json({
+								success : true,
+								token   : 'Bearer ' + token
+							});
+						});
+					} else {
+						errors.password = 'Incorrect password';
+						return res.status(400).json(errors);
+					}
+				})
+				.catch((err) => console.log(err));
+		})
+		.catch((err) => console.log(err));
 });
 
 router.get('/user', passport.authenticate('jwt', {session: false}), (req, res) => {
