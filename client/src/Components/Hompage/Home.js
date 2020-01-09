@@ -3,9 +3,9 @@ import './Home.css';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import img1 from '../../images/screen1.jpg';
-import img2 from '../../images/screen18.jpg';
-import img3 from '../../images/screen3.jpg';
+import img1 from '../../images/login.png';
+import img2 from '../../images/admin.png';
+import img3 from '../../images/signup.png';
 import img4 from '../../images/campusM-Attendance-integrated-into-campusM-large.png';
 import Features from '../Features/Features';
 
@@ -19,7 +19,7 @@ class Home extends Component {
 		return (
 			<div className='home'>
 				<div className='hdisplay text-center'>
-					<img className='homeImg' src={img4} alt='img'/>
+					<img className='homeImg' src={img4} alt='img' />
 				</div>
 				<Features />
 				<div className='interest p-2 m-3'>
