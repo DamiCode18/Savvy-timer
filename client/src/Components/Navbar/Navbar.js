@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logoutUser} from '../../actions/authActions';
 import {Link} from 'react-router-dom';
-import img1 from '../../images/logo1.png';
+import img1 from '../../images/nlogo.png';
 import img2 from '../../images/avatar.jpeg';
 import './Navbar.css';
 
@@ -84,7 +84,7 @@ class Navbar extends Component {
 			<div>
 				<nav style={{color: '#fff'}} className='container navbar navbar-expand-lg navbar-light'>
 					<Link className='navbar-brand' to='/'>
-						<img src={img1} alt='logo' style={{height: '40px', width: '40px'}} />
+						<img src={img1} alt='logo' style={{height: '40px', width: '150px'}} />
 					</Link>
 					<button
 						className='navbar-toggler'
