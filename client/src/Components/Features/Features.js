@@ -15,7 +15,7 @@ const Features = () => {
 				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img1} alt='img' />
-						<p className='mr-auto'>
+						<p className='m-auto'>
 							<b>Timer</b>
 						</p>
 						<p>
@@ -28,7 +28,7 @@ const Features = () => {
 				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img2} alt='img' />
-						<p className='mr-auto'>
+						<p className='m-auto'>
 							<b>Watch</b>
 						</p>
 						<p>
@@ -41,7 +41,7 @@ const Features = () => {
 				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img3} alt='img' />
-						<p className='mr-auto'>
+						<p className='m-auto'>
 							<b>Clock</b>
 						</p>
 						<p>
@@ -54,7 +54,7 @@ const Features = () => {
 				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img4} alt='img' />
-						<p className='mr-auto'>
+						<p className='m-auto'>
 							<b>Code</b>
 						</p>
 						<p>
@@ -67,7 +67,7 @@ const Features = () => {
 				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img5} alt='img' />
-						<p className='mr-auto'>
+						<p className='m-auto'>
 							<b>Leave</b>
 						</p>
 						<p>
@@ -80,7 +80,7 @@ const Features = () => {
 				<div className='col-md-4 col-sm-4'>
 					<div className='card'>
 						<img src={img6} alt='img' />
-						<p className='mr-auto'>
+						<p className='m-auto'>
 							<b>Stopwatch</b>
 						</p>
 						<p>
