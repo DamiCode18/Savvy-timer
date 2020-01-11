@@ -27,10 +27,10 @@ connection.once('open', (req, res) => {
 	console.log('Database Successfully Launched!!');
 });
 
-const userDetailsRouter = require('./routes/userDetails');
+const userDetailsRouter = require('./routes/profile');
 const userRouter = require('./routes/users');
 
-app.use('/userDetails', userDetailsRouter);
+app.use('/profile', userDetailsRouter);
 app.use('/users', userRouter);
 
 if (process.env.NODE_ENV === 'production') {
