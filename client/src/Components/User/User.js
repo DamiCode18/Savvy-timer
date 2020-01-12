@@ -49,9 +49,8 @@ class User extends Component {
 					</div>
 					<div className='col-lg-6 col-sm-12'>
 						<div className='user card'>
-							<h1>UsersProfile</h1>
+							<h3 className='p-3'>Welcome</h3>
 							<div className='card-body'>
-								<p>Welcome</p>
 								<button
 									className='btn mx-5 bbb not-allowed'
 									onClick={signInTime}
