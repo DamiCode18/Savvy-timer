@@ -22,7 +22,7 @@ module.exports = function validateRegisterInput(data) {
 		errors.lastname = 'Lastname is required';
 	}
 	if (!(Validator.isEmail(data.email) && data.email.split('@')[1] === subString)) {
-		errors.email = 'Invalid Email';
+		errors.email = 'Email Domain Invalid';
 	}
 	if (Validator.isEmpty(data.email)) {
 		errors.email = 'Email is required';
