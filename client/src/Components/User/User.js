@@ -9,6 +9,10 @@ function signOutTime() {
 	var b = 'SignOut Successful!';
 	document.getElementById('plog').innerHTML = b;
 	document.getElementById('date').innerHTML = a;
+	var btn = document.getElementById('so');
+	btn.disabled = true;
+	var btn = document.getElementById('si');
+	btn.disabled = false;
 }
 function signInTime() {
 	var d = Date();
@@ -17,6 +21,10 @@ function signInTime() {
 	var b = 'SignIn Successful!';
 	document.getElementById('plog').innerHTML = b;
 	document.getElementById('date').innerHTML = a;
+	var btn = document.getElementById('si');
+	btn.disabled = true;
+	var btn = document.getElementById('so');
+	btn.disabled = false;
 }
 function LeaveTime() {
 	var d = Date();
@@ -42,20 +50,32 @@ class User extends Component {
 						<div className='user card'>
 							<h1>UsersProfile</h1>
 							<div className='card-body'>
-								<p>Welcome "Dammy"</p>
-								<button className='btn btn-primary mx-2 bbb' onClick={signInTime}>
+								<p>Welcome</p>
+								<button
+									className='btn mx-5 bbb'
+									onClick={signInTime}
+									id='si'
+									style={{background: 'green', color: 'white'}}
+								>
 									SignIn
 								</button>
-								<button className='btn btn-primary mt-5 bbb' onClick={signOutTime}>
+								<button
+									className='btn btn-danger mx-auto bbb'
+									onClick={signOutTime}
+									id='so'
+									style={{color: 'white'}}
+								>
 									SignOut
 								</button>
-								<button
-									className='btn btn-primary mx-2 bbb'
-									data-toggle='modal'
-									data-target='#exampleModal'
-								>
-									Leave
-								</button>
+								<div className='text-center'>
+									<button
+										className='btn mt-5 btn-info bbb'
+										data-toggle='modal'
+										data-target='#exampleModal'
+									>
+										Leave
+									</button>
+								</div>
 								<div
 									className='modal fade'
 									id='exampleModal'
