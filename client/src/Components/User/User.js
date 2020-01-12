@@ -25,6 +25,7 @@ function signInTime() {
 	btn.disabled = true;
 	var btn = document.getElementById('so');
 	btn.disabled = false;
+	btn.classList.add('not-allowed');
 }
 function LeaveTime() {
 	var d = Date();
@@ -52,7 +53,7 @@ class User extends Component {
 							<div className='card-body'>
 								<p>Welcome</p>
 								<button
-									className='btn mx-5 bbb'
+									className='btn mx-5 bbb not-allowed'
 									onClick={signInTime}
 									id='si'
 									style={{background: 'green', color: 'white'}}
@@ -60,7 +61,7 @@ class User extends Component {
 									SignIn
 								</button>
 								<button
-									className='btn btn-danger mx-auto bbb'
+									className='btn btn-danger mx-auto bbb not-allowed'
 									onClick={signOutTime}
 									id='so'
 									style={{color: 'white'}}
@@ -69,7 +70,7 @@ class User extends Component {
 								</button>
 								<div className='text-center'>
 									<button
-										className='btn mt-5 btn-info bbb'
+										className='btn mt-5 btn-outline-info bbb'
 										data-toggle='modal'
 										data-target='#exampleModal'
 									>
