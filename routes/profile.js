@@ -29,6 +29,15 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 		})
 		.catch((err) => res.status(404).json(err));
 });
+
+//@route 	POST routes/profile
+//@desc 	Create new user profile
+//@access 	private
+
+router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
+	
+});
+
 router.route('/add').post((req, res) => {
 	const newDetails = new Details({
 		signIn  : req.body.signIn,
@@ -37,5 +46,6 @@ router.route('/add').post((req, res) => {
 	});
 	newDetails.save().then(() => res.json('Details Saved!')).catch((err) => res.status(400).json('Error: ' + err));
 });
+
 
 module.exports = router;
