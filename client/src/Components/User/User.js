@@ -26,6 +26,42 @@ function signInTime() {
 	var btn = document.getElementById('so');
 	btn.disabled = false;
 	btn.classList.add('not-allowed');
+	// var timerVar = setInterval(countTimer, 0);
+	// var totalSeconds = 0;
+	// function countTimer() {
+	// 	++totalSeconds;
+	// 	var hour = Math.floor(totalSeconds / 3600);
+	// 	var minute = Math.floor((totalSeconds - hour * 3600) / 60);
+	// 	var seconds = totalSeconds - (hour * 3600 + minute * 60);
+	// 	if (hour < 10) hour = '0' + hour;
+	// 	if (minute < 10) minute = '0' + minute;
+	// 	if (seconds < 10) seconds = '0' + seconds;
+	// 	document.getElementById('timer').innerHTML = hour + ':' + minute + ':' + seconds;
+	// }
+	var startTime = Math.floor(Date.now() / 1000); //Get the starting time (right now) in seconds
+	localStorage.setItem('startTime', startTime); // Store it if I want to restart the timer on the next page
+
+	function startTimeCounter() {
+		var now = Math.floor(Date.now() / 1000); // get the time now
+		var diff = now - startTime; // diff in seconds between now and start
+		var h = Math.floor(diff / 3600); // get hours value
+		var m = Math.floor(diff / 60); // get minutes value (quotient of diff)
+		var s = Math.floor(diff % 60); // get seconds value (remainder of diff)
+		h = checkTime(h); // add a leading zero if it's a single digit
+		m = checkTime(m); // add a leading zero if it's single digit
+		s = checkTime(s); // add a leading zero if it's single digit
+		document.getElementById('timer').innerHTML = 'Work Time => ' + h + ':' + m + ':' + s; // update the element where the timer will appear
+		var t = setTimeout(startTimeCounter, 0.5); // set a timeout to update the timer
+	}
+
+	function checkTime(i) {
+		if (i < 10) {
+			i = '0' + i;
+		} // add zero in front of numbers < 10
+		return i;
+	}
+
+	startTimeCounter();
 }
 function LeaveTime() {
 	var d = Date();
@@ -51,6 +87,7 @@ class User extends Component {
 						<div className='user card'>
 							<h3 className='p-3'>Welcome</h3>
 							<div className='card-body'>
+								<div id='timer' className='p-3' />
 								<button
 									className='btn mx-5 bbb not-allowed'
 									onClick={signInTime}
