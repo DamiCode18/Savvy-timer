@@ -1,6 +1,8 @@
 .user {
 	width: 450px;
 	height: 450px;
+	margin: auto;
+	padding: 0 auto;
 }
 .bbb {
 	width: 120px;
@@ -8,4 +10,28 @@
 }
 .not-allowed {
 	cursor: not-allowed;
+}
+.userSection {
+	width: 100vw;
+	height: 100vh;
+}
+.userImg {
+	width: 40em;
+	height: 450px;
+	margin: auto;
+}
+@media only screen and (max-width: 768px) {
+	.user {
+		width: 350px;
+		height: 450px;
+		margin: auto;
+	}
+	.bbb {
+		width: 100px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.userImg {
+		width: 360px;
+	}
 }
