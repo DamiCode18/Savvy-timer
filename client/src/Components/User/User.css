@@ -15,11 +15,7 @@
 	width: 100vw;
 	height: 100vh;
 }
-.userImg {
-	width: 40em;
-	height: 450px;
-	margin: auto;
-}
+
 @media only screen and (max-width: 768px) {
 	.user {
 		width: 350px;
@@ -32,6 +28,59 @@
 		margin-right: auto;
 	}
 	.userImg {
-		width: 360px;
+		width: 20em;
+		margin: auto !important;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.user {
+		width: 350px;
+		height: 450px;
+		margin: auto;
+	}
+	.bbb {
+		width: 100px;
+		margin: auto;
+		border-radius: 50px;
+	}
+	.userImg {
+		width: 25em;
+		height: 450px;
+		margin: auto;
+	}
+}
+@media only screen and (min-width: 992px) {
+	.user {
+		width: 350px;
+		height: 450px;
+		margin: auto;
+	}
+	.bbb {
+		width: 100px;
+		margin: auto;
+		border-radius: 50px;
+	}
+	.userImg {
+		width: 30em;
+		height: 450px;
+		margin: auto;
+	}
+}
+@media only screen and (min-width: 1200px) {
+	.user {
+		width: 450px;
+		height: 450px;
+		margin: auto;
+	}
+	.bbb {
+		width: 120px;
+		border-radius: 50px;
+		margin: auto;
+	}
+	.userImg {
+		width: 40em;
+		height: 450px;
+		margin: auto;
 	}
 }

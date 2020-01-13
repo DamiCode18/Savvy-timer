@@ -55,17 +55,16 @@ class User extends Component {
 	};
 	render() {
 		return (
-			<div className='userSection'>
+			<div className='userSection container-fluid'>
 				<div className='row'>
-					<div className='col-lg-6 col-md-6 col-sm-12'>
+					<div className='container text-center col-lg-6 col-md-6 col-sm-12'>
 						<img className='userImg' src={img1} alt='img' />
 					</div>
-					<div className='col-lg-6 col-md-6 col-sm-12'>
+					<div className='mt-4 col-lg-6 col-md-6 col-sm-12'>
 						<div className='user card'>
 							<h3 className='p-3'>Welcome</h3>
 							<div className='card-body'>
 								<div id='timer' className='p-3' />
-
 								<button
 									className='btn mx-5 bbb not-allowed'
 									onClick={signInTime}
