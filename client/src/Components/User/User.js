@@ -66,7 +66,7 @@ class User extends Component {
 							<div className='card-body'>
 								<div id='timer' className='p-3' />
 								<button
-									className='btn mx-5 bbb not-allowed'
+									className='btn bbb not-allowed'
 									onClick={signInTime}
 									id='si'
 									style={{background: 'green', color: 'white'}}

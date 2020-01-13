@@ -1,13 +1,3 @@
-.user {
-	width: 450px;
-	height: 450px;
-	margin: auto;
-	padding: 0 auto;
-}
-.bbb {
-	width: 120px;
-	border-radius: 50px;
-}
 .not-allowed {
 	cursor: not-allowed;
 }
@@ -18,18 +8,21 @@
 
 @media only screen and (max-width: 768px) {
 	.user {
-		width: 350px;
+		width: 320px;
 		height: 450px;
 		margin: auto;
 	}
 	.bbb {
+		font-size: 15px !important;
 		width: 100px;
-		margin-left: auto;
-		margin-right: auto;
+		margin-left: 20px;
+		margin-right: 20px;
+		border-radius: 50px;
 	}
 	.userImg {
 		width: 20em;
-		margin: auto !important;
+		height: 450px;
+		margin: auto;
 	}
 }
 
@@ -40,9 +33,12 @@
 		margin: auto;
 	}
 	.bbb {
+		font-size: 15px !important;
 		width: 100px;
-		margin: auto;
+		/* margin: auto; */
 		border-radius: 50px;
+		margin-left: 50px;
+		margin-right: 50px;
 	}
 	.userImg {
 		width: 25em;
@@ -58,8 +54,10 @@
 	}
 	.bbb {
 		width: 100px;
-		margin: auto;
+		/* margin: auto; */
 		border-radius: 50px;
+		margin-left: 50px;
+		margin-right: 50px;
 	}
 	.userImg {
 		width: 30em;
@@ -76,7 +74,9 @@
 	.bbb {
 		width: 120px;
 		border-radius: 50px;
-		margin: auto;
+		/* margin: auto; */
+		margin-left: 50px;
+		margin-right: 50px;
 	}
 	.userImg {
 		width: 40em;
