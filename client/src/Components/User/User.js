@@ -1,27 +1,8 @@
 import React, {Component} from 'react';
 import img1 from '../../images/business-people-laptops-mobile-phones-600w-1298298010.jpg';
 import './User.css';
-// console.log('Client-side code running');
-
-// const button = document.getElementById('si');
-// button.addEventListener('click', function(e) {
-//   console.log('button was clicked');
-
-// });
-
-// setInterval(function() {
-//   fetch('/clicks', {method: 'GET'})
-//     .then(function(response) {
-//       if(response.ok) return response.json();
-//       throw new Error('Request failed.');
-//     })
-//     .then(function(data) {
-//       document.getElementById('counter').innerHTML = `Button was clicked ${data.length} times`;
-//     })
-//     .catch(function(error) {
-//       console.log(error);
-//     });
-// }, 1000);
+import axios from 'axios';
+import {robots} from '../../actions/authActions';
 
 function signOutTime() {
 	var d = Date();
@@ -47,21 +28,22 @@ function signInTime() {
 	var btn = document.getElementById('so');
 	btn.disabled = false;
 	btn.classList.add('not-allowed');
-	fetch('profile', {method: 'POST'})
+	axios
+		.post('profile', a)
 		.then(function(response) {
 			if (response.ok) {
 				console.log('click was recorded');
 				return;
 			}
-			throw new Error('Request failed.');
 		})
 		.catch(function(error) {
 			console.log(error);
 		});
-
 	var timerVar = setInterval(countTimer, 1000);
 	var totalSeconds = 0;
 	function countTimer() {
+		var timerVar = setInterval(countTimer, 1000);
+
 		++totalSeconds;
 		var hour = Math.floor(totalSeconds / 3600);
 		var minute = Math.floor((totalSeconds - hour * 3600) / 60);
@@ -71,11 +53,6 @@ function signInTime() {
 		if (seconds < 10) seconds = '0' + seconds;
 		var timeDisp = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
 		document.getElementById('timer').innerHTML = timeDisp;
-		
-	}
-	if (timerVar) {
-		var btn = document.getElementById('si');
-		btn.disabled = true;
 	}
 }
 function LeaveTime() {
