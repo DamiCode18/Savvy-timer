@@ -19,7 +19,7 @@ router.get('/test', (req, res) => res.json({msg: 'profile works'}));
 
 router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	const errors = {};
-	Profile.findOne({user: req.user.id})
+	User.findOne({user: req.user.id})
 		.then((profile) => {
 			if (!profile) {
 				errors.noprofile = 'There is no profile for this user';
@@ -35,17 +35,25 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 //@access 	private
 
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
-	
+	const errors = {};
+	const profileFields = {};
+	profileFields.user = req.user.id;
+	if (req.body.signIn) profileFields.signin = req.body.signIn;
+	if (req.body.signOut) profileFields.signin = req.body.signOut;
+	// if (req.body.signin) profileFields.signin = req.body.signin;
+	User.findOne({user: req.user.id})
+		.then((profile) => {
+			if (profile) {
+				//Update
+				Profile.findOneAndUpdate({user: req.body.id}, {$set: profileFields}, {new: true}).then((profile) =>
+					res.json(profile)
+				);
+			} else {
+				//Create
+				new Profile(profileFields).save().then((profile) => res.json(profile));
+			}
+		})
+		.catch((err) => res.status(404).json(err));
 });
-
-router.route('/add').post((req, res) => {
-	const newDetails = new Details({
-		signIn  : req.body.signIn,
-		signOut : req.body.signOut,
-		leave   : req.body.leave
-	});
-	newDetails.save().then(() => res.json('Details Saved!')).catch((err) => res.status(400).json('Error: ' + err));
-});
-
 
 module.exports = router;

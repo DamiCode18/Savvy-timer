@@ -1,6 +1,27 @@
 import React, {Component} from 'react';
 import img1 from '../../images/business-people-laptops-mobile-phones-600w-1298298010.jpg';
 import './User.css';
+// console.log('Client-side code running');
+
+// const button = document.getElementById('si');
+// button.addEventListener('click', function(e) {
+//   console.log('button was clicked');
+
+// });
+
+// setInterval(function() {
+//   fetch('/clicks', {method: 'GET'})
+//     .then(function(response) {
+//       if(response.ok) return response.json();
+//       throw new Error('Request failed.');
+//     })
+//     .then(function(data) {
+//       document.getElementById('counter').innerHTML = `Button was clicked ${data.length} times`;
+//     })
+//     .catch(function(error) {
+//       console.log(error);
+//     });
+// }, 1000);
 
 function signOutTime() {
 	var d = Date();
@@ -26,6 +47,17 @@ function signInTime() {
 	var btn = document.getElementById('so');
 	btn.disabled = false;
 	btn.classList.add('not-allowed');
+	fetch('profile', {method: 'POST'})
+		.then(function(response) {
+			if (response.ok) {
+				console.log('click was recorded');
+				return;
+			}
+			throw new Error('Request failed.');
+		})
+		.catch(function(error) {
+			console.log(error);
+		});
 
 	var timerVar = setInterval(countTimer, 1000);
 	var totalSeconds = 0;
