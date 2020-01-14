@@ -69,9 +69,11 @@ function signInTime() {
 		if (hour < 10) hour = '0' + hour;
 		if (minute < 10) minute = '0' + minute;
 		if (seconds < 10) seconds = '0' + seconds;
-		document.getElementById('timer').innerHTML = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
+		var timeDisp = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
+		document.getElementById('timer').innerHTML = timeDisp;
+		
 	}
-	if (countTimer()) {
+	if (timerVar) {
 		var btn = document.getElementById('si');
 		btn.disabled = true;
 	}
