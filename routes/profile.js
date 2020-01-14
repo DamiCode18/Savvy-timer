@@ -45,9 +45,12 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 		.then((profile) => {
 			if (profile) {
 				//Update
-				Profile.findOneAndUpdate({user: req.body.id}, {$set: profileFields}, {new: true}).then((profile) =>
-					res.json(profile)
-				);
+				Profile.findOneAndUpdate(
+					{user: req.body.id},
+					{signIn: req.body.signin},
+					{$set: profileFields},
+					{new: true}
+				).then((profile) => res.json(profile));
 			} else {
 				//Create
 				new Profile(profileFields).save().then((profile) => res.json(profile));

@@ -71,6 +71,10 @@ function signInTime() {
 		if (seconds < 10) seconds = '0' + seconds;
 		document.getElementById('timer').innerHTML = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
 	}
+	if (countTimer()) {
+		var btn = document.getElementById('si');
+		btn.disabled = true;
+	}
 }
 function LeaveTime() {
 	var d = Date();
