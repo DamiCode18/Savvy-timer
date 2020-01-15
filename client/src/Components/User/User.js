@@ -65,6 +65,8 @@ class User extends Component {
 	};
 	render() {
 		const {auth} = this.props;
+		const name = auth.user.firstname;
+		const dispName = name.charAt(0).toUpperCase() + name.slice(1);
 		return (
 			<div className='userSection container-fluid'>
 				<div className='row'>
@@ -73,7 +75,7 @@ class User extends Component {
 					</div>
 					<div className='mt-4 col-lg-6 col-md-6 col-sm-12'>
 						<div className='user card'>
-							<h3 className='p-3'>Welcome {auth.user.firstname}</h3>
+							<h3 className='p-3'>Welcome {dispName}</h3>
 							<div className='card-body'>
 								<div id='timer' className='p-3' />
 								<button
@@ -183,7 +185,6 @@ class User extends Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state.auth.user.firstname);
 	return {auth: state.auth};
 };
 
