@@ -12,7 +12,7 @@ const ProfileSchema = new Schema({
 		type : String
 	},
 	signOut : {
-		type : String
+		type : Schema.Types.String
 	},
 	leave   : [
 		{

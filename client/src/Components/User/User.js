@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import img1 from '../../images/business-people-laptops-mobile-phones-600w-1298298010.jpg';
 import './User.css';
 import axios from 'axios';
-import {robots} from '../../actions/authActions';
+import {connect} from 'react-redux';
 
 function signOutTime() {
 	var d = Date();
@@ -19,7 +19,7 @@ function signOutTime() {
 function signInTime() {
 	var d = Date();
 	var a = d.toString();
-	console.log(`User Signed In at =>  ${a}`);
+	var t = 'User Signed In at => ' + a + ' ';
 	var b = 'SignIn Successful!';
 	document.getElementById('plog').innerHTML = b;
 	document.getElementById('date').innerHTML = a;
@@ -29,21 +29,16 @@ function signInTime() {
 	btn.disabled = false;
 	btn.classList.add('not-allowed');
 	axios
-		.post('profile', a)
-		.then(function(response) {
-			if (response.ok) {
-				console.log('click was recorded');
-				return;
-			}
+		.post('profile', d)
+		.then((res) => {
+			console.log(d);
 		})
-		.catch(function(error) {
+		.catch((error) => {
 			console.log(error);
 		});
 	var timerVar = setInterval(countTimer, 1000);
 	var totalSeconds = 0;
 	function countTimer() {
-		var timerVar = setInterval(countTimer, 1000);
-
 		++totalSeconds;
 		var hour = Math.floor(totalSeconds / 3600);
 		var minute = Math.floor((totalSeconds - hour * 3600) / 60);
@@ -186,4 +181,8 @@ class User extends Component {
 	}
 }
 
-export default User;
+const mapStateToProps = (state) => ({
+	user : state.user
+});
+
+export default connect(mapStateToProps)(User);

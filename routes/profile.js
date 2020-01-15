@@ -38,19 +38,16 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	const errors = {};
 	const profileFields = {};
 	profileFields.user = req.user.id;
-	if (req.body.signIn) profileFields.signin = req.body.signIn;
-	if (req.body.signOut) profileFields.signin = req.body.signOut;
-	// if (req.body.signin) profileFields.signin = req.body.signin;
+	profileFields.signIn = req.body.signIn;
+	profileFields.signOut = req.body.signOut;
+
 	User.findOne({user: req.user.id})
 		.then((profile) => {
 			if (profile) {
 				//Update
-				Profile.findOneAndUpdate(
-					{user: req.body.id},
-					{signIn: req.body.signIn},
-					{$set: profileFields},
-					{new: true}
-				).then((profile) => res.json(profile));
+				Profile.findOneAndUpdate({user: req.body.id}, {$set: profileFields}, {new: true}).then((profile) =>
+					res.json(profile)
+				);
 			} else {
 				//Create
 				new Profile(profileFields).save().then((profile) => res.json(profile));
