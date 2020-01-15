@@ -61,7 +61,7 @@ class Navbar extends Component {
 				<li className='nav-item m-auto'>
 					<Link
 						style={{borderRadius: '50px', width: '100px'}}
-						className='nav-link btn btn-outline-primary px-4'
+						className='nav-link btn adminBtn px-4'
 						to='/admin'
 					>
 						Admin
