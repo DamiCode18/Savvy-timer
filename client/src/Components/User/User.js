@@ -75,7 +75,7 @@ class User extends Component {
 					</div>
 					<div className='mt-4 col-lg-6 col-md-6 col-sm-12'>
 						<div className='user card'>
-							<h3 className='p-3'>Welcome {dispName}</h3>
+							<h3 className='pt-5 px-3'>Welcome {dispName}</h3>
 							<div className='card-body'>
 								<div id='timer' className='p-3' />
 								<button
