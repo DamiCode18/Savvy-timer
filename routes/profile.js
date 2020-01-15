@@ -35,25 +35,36 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 //@access 	private
 
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
-	const errors = {};
-	const profileFields = {};
-	profileFields.user = req.user.id;
-	profileFields.signIn = req.body.signIn;
-	profileFields.signOut = req.body.signOut;
+	// const errors = {};
+	// const profileFields = {signIn: req.body.signIn, signOut: req.body.signOut};
+	// profileFields.user = req.user.id;
+	// profileFields.signIn = req.body.signIn;
+	// profileFields.signOut = req.body.signOut;
 
-	User.findOne({user: req.user.id})
-		.then((profile) => {
-			if (profile) {
-				//Update
-				Profile.findOneAndUpdate({user: req.body.id}, {$set: profileFields}, {new: true}).then((profile) =>
-					res.json(profile)
-				);
-			} else {
-				//Create
-				new Profile(profileFields).save().then((profile) => res.json(profile));
-			}
-		})
-		.catch((err) => res.status(404).json(err));
+	// Profile.findOne({user: req.user.id})
+	// 	.then((profile) => {
+	// 		if (profile) {
+	// 			//Update
+	// 			Profile.findOneAndUpdate(
+	// 				{signIn: req.body.id},
+	// 				{$set: profileFields},
+	// 				{new: true}
+	// 			).then((profile) => res.json(profile));
+	// 		} else {
+	// 			//Create
+	// 			new Profile(profileFields).save().then((profile) => res.json(profile));
+	// 		}
+	// 	})
+	// 	.catch((err) => res.status(404).json(err));
+	const newProf = new Profile({
+		signIn  : req.body.signIn,
+		signOut : req.body.signOut
+	});
+	newProf
+		.save()
+		.then((prof) => res.json('Registered! ' + prof))
+		.catch((err) => res.status(400).json('Error: ' + err));
+	console.log('SIGNIN added');
 });
 
 module.exports = router;

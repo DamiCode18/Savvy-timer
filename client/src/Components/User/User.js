@@ -29,9 +29,9 @@ function signInTime() {
 	btn.disabled = false;
 	btn.classList.add('not-allowed');
 	axios
-		.post('profile', d)
+		.post('profile', 'date')
 		.then((res) => {
-			console.log(d);
+			console.log(res.data);
 		})
 		.catch((error) => {
 			console.log(error);
@@ -64,6 +64,7 @@ class User extends Component {
 		e.preventDefault();
 	};
 	render() {
+		const {auth} = this.props;
 		return (
 			<div className='userSection container-fluid'>
 				<div className='row'>
@@ -72,7 +73,7 @@ class User extends Component {
 					</div>
 					<div className='mt-4 col-lg-6 col-md-6 col-sm-12'>
 						<div className='user card'>
-							<h3 className='p-3'>Welcome</h3>
+							<h3 className='p-3'>Welcome {auth.user.firstname}</h3>
 							<div className='card-body'>
 								<div id='timer' className='p-3' />
 								<button
@@ -181,8 +182,9 @@ class User extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
-	user : state.user
-});
+const mapStateToProps = (state) => {
+	console.log(state.auth.user.firstname);
+	return {auth: state.auth};
+};
 
 export default connect(mapStateToProps)(User);

@@ -3,7 +3,7 @@ import {SET_CURRENT_USER} from '../actions/types';
 
 const initailState = {
 	isAuthenticated : false,
-	user            : {}
+	user            : null
 };
 
 export default function(state = initailState, action) {

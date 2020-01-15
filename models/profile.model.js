@@ -12,32 +12,8 @@ const ProfileSchema = new Schema({
 		type : String
 	},
 	signOut : {
-		type : Schema.Types.String
-	},
-	leave   : [
-		{
-			Fullname      : {
-				type     : String,
-				required : true
-			},
-			Department    : {
-				type     : String,
-				required : true
-			},
-			Reason        : {
-				type     : String,
-				required : true
-			},
-			Duration_From : {
-				type     : Date,
-				required : true
-			},
-			Duration_To   : {
-				type     : Date,
-				required : true
-			}
-		}
-	]
+		type : String
+	}
 });
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema);
+module.exports = Profile = mongoose.model('Profile', ProfileSchema);
