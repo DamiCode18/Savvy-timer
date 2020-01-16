@@ -4,15 +4,13 @@ import './User.css';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-let timerVar, timeDisp, btn;
+let timerVar, timeDisp, btn, b, d;
 
 function signOutTime() {
-	var d = Date();
-	var a = d.toString();
-	console.log(`User Signed Out at =>  ${a}`);
-	var b = 'SignOut Successful!';
+ d = Date().toString();
+	 b = 'SignOut Successful!';
 	document.getElementById('plog').innerHTML = b;
-	document.getElementById('date').innerHTML = a;
+	document.getElementById('date').innerHTML = d;
 	btn = document.getElementById('so');
 	btn.disabled = true;
 	btn = document.getElementById('si');
@@ -22,19 +20,17 @@ function signOutTime() {
 	document.getElementById('timer').innerHTML = timeDisp;
 }
 function signInTime() {
-	var d = Date();
-	var a = d.toString();
-	var t = 'User Signed In at => ' + a + ' ';
-	var b = 'SignIn Successful!';
+	 d = Date().toString();
+	 b = 'SignIn Successful!';
 	document.getElementById('plog').innerHTML = b;
-	document.getElementById('date').innerHTML = a;
+	document.getElementById('date').innerHTML = d;
 	btn = document.getElementById('si');
 	btn.disabled = true;
 	btn = document.getElementById('so');
 	btn.disabled = false;
 	btn.classList.add('not-allowed');
 	axios
-		.post('profile', t)
+		.post('profile', d)
 		.then((res) => {
 			console.log(res.data);
 		})
@@ -56,12 +52,10 @@ function signInTime() {
 	}
 }
 function LeaveTime() {
-	var d = Date();
-	var a = d.toString();
-	console.log(`User Request For Leave at =>  ${a}`);
+	d = Date().toString();
 	var b = 'Successfully Request For Leave!';
 	document.getElementById('plog').innerHTML = b;
-	document.getElementById('date').innerHTML = a;
+	document.getElementById('date').innerHTML = d;
 }
 
 class User extends Component {
