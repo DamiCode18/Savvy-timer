@@ -4,7 +4,7 @@ import './User.css';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-var timerVar, timeDisp, btn;
+let timerVar, timeDisp, btn;
 
 function signOutTime() {
 	var d = Date();
