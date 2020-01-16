@@ -4,6 +4,8 @@ import './User.css';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
+var timerVar, timeDisp, btn;
+
 function signOutTime() {
 	var d = Date();
 	var a = d.toString();
@@ -11,10 +13,13 @@ function signOutTime() {
 	var b = 'SignOut Successful!';
 	document.getElementById('plog').innerHTML = b;
 	document.getElementById('date').innerHTML = a;
-	var btn = document.getElementById('so');
+	btn = document.getElementById('so');
 	btn.disabled = true;
-	var btn = document.getElementById('si');
+	btn = document.getElementById('si');
 	btn.disabled = false;
+	clearTimeout(timerVar);
+	timeDisp = 'Work Time => Closed!!!';
+	document.getElementById('timer').innerHTML = timeDisp;
 }
 function signInTime() {
 	var d = Date();
@@ -23,20 +28,20 @@ function signInTime() {
 	var b = 'SignIn Successful!';
 	document.getElementById('plog').innerHTML = b;
 	document.getElementById('date').innerHTML = a;
-	var btn = document.getElementById('si');
+	btn = document.getElementById('si');
 	btn.disabled = true;
-	var btn = document.getElementById('so');
+	btn = document.getElementById('so');
 	btn.disabled = false;
 	btn.classList.add('not-allowed');
 	axios
-		.post('profile', 'date')
+		.post('profile', t)
 		.then((res) => {
 			console.log(res.data);
 		})
 		.catch((error) => {
 			console.log(error);
 		});
-	var timerVar = setInterval(countTimer, 1000);
+	timerVar = setInterval(countTimer, 1000);
 	var totalSeconds = 0;
 	function countTimer() {
 		++totalSeconds;
@@ -46,7 +51,7 @@ function signInTime() {
 		if (hour < 10) hour = '0' + hour;
 		if (minute < 10) minute = '0' + minute;
 		if (seconds < 10) seconds = '0' + seconds;
-		var timeDisp = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
+		timeDisp = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
 		document.getElementById('timer').innerHTML = timeDisp;
 	}
 }
