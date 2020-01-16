@@ -7,8 +7,8 @@ import {connect} from 'react-redux';
 let timerVar, timeDisp, btn, b, d;
 
 function signOutTime() {
- d = Date().toString();
-	 b = 'SignOut Successful!';
+	d = Date().toString();
+	b = 'SignOut Successful!';
 	document.getElementById('plog').innerHTML = b;
 	document.getElementById('date').innerHTML = d;
 	btn = document.getElementById('so');
@@ -20,8 +20,8 @@ function signOutTime() {
 	document.getElementById('timer').innerHTML = timeDisp;
 }
 function signInTime() {
-	 d = Date().toString();
-	 b = 'SignIn Successful!';
+	d = Date().toString();
+	b = 'SignIn Successful!';
 	document.getElementById('plog').innerHTML = b;
 	document.getElementById('date').innerHTML = d;
 	btn = document.getElementById('si');
@@ -53,7 +53,7 @@ function signInTime() {
 }
 function LeaveTime() {
 	d = Date().toString();
-	var b = 'Successfully Request For Leave!';
+	b = 'Successfully Request For Leave!';
 	document.getElementById('plog').innerHTML = b;
 	document.getElementById('date').innerHTML = d;
 }
