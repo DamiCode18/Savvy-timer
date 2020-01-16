@@ -35,14 +35,23 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 //@access 	private
 
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
-	const newProf = new Profile({
-		signIn  : req.body.signIn,
-		signOut : req.body.signOut
+	// Get Data to be saved to database
+	const profileData = {};
+	profileData.user = req.user.id;
+	if (req.body.signIn) profileData.signIn = req.body.signIn;
+	if (req.body.signOut) profileData.signOut = req.body.signOut;
+
+	Profile.findOne({user: req.user.id}).then((profile) => {
+		if (profile) {
+			//update
+			Profile.findByIdAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
+				res.json(profile)
+			);
+		} else {
+			//Create
+			new Profile(profileData).save().then((profile) => res.json(profile));
+		}
 	});
-	newProf
-		.save()
-		.then((prof) => res.json('Registered! ' + prof))
-		.catch((err) => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;

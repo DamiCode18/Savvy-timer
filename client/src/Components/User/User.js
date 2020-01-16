@@ -4,7 +4,7 @@ import './User.css';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-let timerVar, timeDisp, btn, b, d;
+let timerVar, timeDisp, btn, b, signIn, d;
 
 function signOutTime() {
 	d = Date().toString();
@@ -30,8 +30,9 @@ function signInTime() {
 	btn.disabled = false;
 	btn.classList.add('not-allowed');
 	axios
-		.post('profile', d)
+		.post('profile', {signIn: d})
 		.then((res) => {
+			console.log(d);
 			console.log(res.data);
 		})
 		.catch((error) => {
