@@ -21,7 +21,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 const uri = require('./config/keys').mongoURI;
-mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false});
 const connection = mongoose.connection;
 connection.once('open', (req, res) => {
 	console.log('Database Successfully Launched!!');
