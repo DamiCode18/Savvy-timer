@@ -4,7 +4,7 @@ import './User.css';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-let timerVar, timeDisp, btn, b, signIn, d;
+let timerVar, timeDisp, btn, b, d;
 
 function signOutTime() {
 	d = Date().toString();
@@ -15,6 +15,15 @@ function signOutTime() {
 	btn.disabled = true;
 	btn = document.getElementById('si');
 	btn.disabled = false;
+	axios
+		.post('profile', {signOut: d})
+		.then((res) => {
+			console.log(d);
+			console.log(res.data);
+		})
+		.catch((error) => {
+			console.log(error);
+		});
 	clearTimeout(timerVar);
 	timeDisp = 'Work Time => Closed!!!';
 	document.getElementById('timer').innerHTML = timeDisp;
