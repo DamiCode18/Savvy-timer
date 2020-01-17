@@ -18,11 +18,10 @@ function signOutTime() {
 	axios
 		.post('profile', {signOut: d})
 		.then((res) => {
-			console.log(d);
-			console.log(res.data);
+			return res.data;
 		})
 		.catch((error) => {
-			console.log(error);
+			return error;
 		});
 	clearTimeout(timerVar);
 	timeDisp = 'Work Time => Closed!!!';
@@ -41,11 +40,10 @@ function signInTime() {
 	axios
 		.post('profile', {signIn: d})
 		.then((res) => {
-			console.log(d);
-			console.log(res.data);
+			return res.data;
 		})
 		.catch((error) => {
-			console.log(error);
+			return error;
 		});
 	timerVar = setInterval(countTimer, 1000);
 	var totalSeconds = 0;
