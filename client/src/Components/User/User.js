@@ -9,8 +9,8 @@ let timerVar, timeDisp, btn, b, d;
 function signOutTime() {
 	d = Date().toString();
 	b = 'SignOut Successful!';
-	document.getElementById('plog').innerHTML = b;
-	document.getElementById('date').innerHTML = d;
+	document.getElementById('plog').textContent = b;
+	document.getElementById('date').textContent = d;
 	btn = document.getElementById('so');
 	btn.disabled = true;
 	btn = document.getElementById('si');
@@ -25,13 +25,13 @@ function signOutTime() {
 		});
 	clearTimeout(timerVar);
 	timeDisp = 'Work Time => Closed!!!';
-	document.getElementById('timer').innerHTML = timeDisp;
+	document.getElementById('timer').textContent = timeDisp;
 }
 function signInTime() {
 	d = Date().toString();
 	b = 'SignIn Successful!';
-	document.getElementById('plog').innerHTML = b;
-	document.getElementById('date').innerHTML = d;
+	document.getElementById('plog').textContent = b;
+	document.getElementById('date').textContent = d;
 	btn = document.getElementById('si');
 	btn.disabled = true;
 	btn = document.getElementById('so');
@@ -56,14 +56,14 @@ function signInTime() {
 		if (minute < 10) minute = '0' + minute;
 		if (seconds < 10) seconds = '0' + seconds;
 		timeDisp = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
-		document.getElementById('timer').innerHTML = timeDisp;
+		document.getElementById('timer').textContent = timeDisp;
 	}
 }
 function LeaveTime() {
 	d = Date().toString();
 	b = 'Successfully Request For Leave!';
-	document.getElementById('plog').innerHTML = b;
-	document.getElementById('date').innerHTML = d;
+	document.getElementById('plog').textContent = b;
+	document.getElementById('date').textContent = d;
 }
 
 class User extends Component {
