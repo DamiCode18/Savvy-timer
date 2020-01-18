@@ -22,7 +22,7 @@ class Home extends Component {
 					<img className='homeImg' src={img4} alt='img' />
 				</div>
 				<Features />
-				<div className='interest p-2 m-3'>
+				<div className='interest p-2 my-3'>
 					<h3 className='title'>Interesting Factors About SavvyTimer</h3>
 					<p>
 						"SavvyTimer is Great platform for time management in offices for effective tracking of employees
