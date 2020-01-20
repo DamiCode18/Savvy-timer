@@ -46,6 +46,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	profileData.user = req.user.id;
 	if (req.body.signIn) profileData.signIn = req.body.signIn;
 	if (req.body.signOut) profileData.signOut = req.body.signOut;
+	if (req.body.date) profileData.date = req.body.date;
 
 	//Create
 	new Profile(profileData).save().then((profile) => res.json(profile));

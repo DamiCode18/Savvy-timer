@@ -13,6 +13,9 @@ const ProfileSchema = new Schema({
 	},
 	signOut : {
 		type : Object
+	},
+	date    : {
+		type : Object
 	}
 });
 

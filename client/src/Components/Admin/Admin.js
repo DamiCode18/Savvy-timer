@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Loader from '../../Components/Loader/Loader';
-
+import Moment from 'react-moment';
 class DataList extends Component {
 	state = {
 		datas    : [],
@@ -33,7 +33,7 @@ class DataList extends Component {
 			);
 		} else {
 			return (
-				<div className='container-fluid'>
+				<div className='container-fluid text-center'>
 					<h3>User Attendance Details</h3>
 					<table className='table table-dark'>
 						<thead className='thead-light'>
@@ -50,7 +50,22 @@ class DataList extends Component {
 								return (
 									<tr>
 										<td>
-											<p key={data._id}>{data.user.firstname}</p>
+											<p key={data._id}>{data.user.firstname + ' ' + data.user.lastname}</p>
+										</td>
+										<td>
+											<p key={data._id}>
+												<Moment format='YYYY-MM-DD'>{data.date}</Moment>
+											</p>
+										</td>
+										<td>
+											<p key={data._id}>
+												<Moment format='h:mm:ss a'>{data.signIn}</Moment>
+											</p>
+										</td>
+										<td>
+											<p key={data._id}>
+												<Moment format='h:mm:ss a'>{data.signOut}</Moment>
+											</p>
 										</td>
 									</tr>
 								);
