@@ -16,7 +16,7 @@ function signOutTime() {
 	btn = document.getElementById('si');
 	btn.disabled = false;
 	axios
-		.post('profile', {signOut: d})
+		.post('profile', {signOut: new Date()})
 		.then((res) => {
 			return res.data;
 		})
@@ -38,7 +38,7 @@ function signInTime() {
 	btn.disabled = false;
 	btn.classList.add('not-allowed');
 	axios
-		.post('profile', {signIn: d})
+		.post('profile', {signIn: new Date()})
 		.then((res) => {
 			return res.data;
 		})

@@ -11,7 +11,12 @@ const User = require('../models/user.model');
 //@route 	GET routes/profile/test
 //@desc 	Test profile route
 //@access 	public
-router.get('/test', (req, res) => res.json({msg: 'profile works'}));
+router.get('/datas', (req, res) => {
+	Profile.find()
+		.populate('user', ['firstname', 'lastname'], User)
+		.then((profile) => res.json(profile))
+		.catch((err) => res.status(400).json('Error: ' + err));
+});
 
 //@route 	GET routes/profile
 //@desc 	Get current user profile
@@ -42,17 +47,19 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	if (req.body.signIn) profileData.signIn = req.body.signIn;
 	if (req.body.signOut) profileData.signOut = req.body.signOut;
 
-	Profile.findOne({user: req.user.id}).then((profile) => {
-		if (profile) {
-			//update
-			Profile.findOneAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
-				res.json(profile)
-			);
-		} else {
-			//Create
-			new Profile(profileData).save().then((profile) => res.json(profile));
-		}
-	});
+	//Create
+	new Profile(profileData).save().then((profile) => res.json(profile));
+
+	// Profile.findOne({user: req.user.id}).then((profile) => {
+	// 	if (profile) {
+	// 		//update
+	// 		Profile.findOneAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
+	// 			res.json(profile)
+	// 		);
+	// 	} else {
+
+	// 	}
+	// });
 });
 
 module.exports = router;
