@@ -63,6 +63,14 @@ function LeaveTime() {
 	b = 'Leave Request Submitted!';
 	document.getElementById('plog').textContent = b;
 	document.getElementById('date').textContent = d;
+	axios
+		.post('leave', {signIn: new Date(), date: new Date()})
+		.then((res) => {
+			return res.data;
+		})
+		.catch((error) => {
+			return error;
+		});
 }
 
 class User extends Component {

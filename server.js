@@ -29,9 +29,11 @@ connection.once('open', (req, res) => {
 
 const userDetailsRouter = require('./routes/profile');
 const userRouter = require('./routes/users');
+const leaveRouter = require('./routes/leave');
 
 app.use('/profile', userDetailsRouter);
 app.use('/users', userRouter);
+app.use('/leave', leaveRouter);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));

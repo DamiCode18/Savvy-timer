@@ -12,6 +12,7 @@ import Login from './Components/Loginpage/Login';
 import Register from './Components/RegisterPage/Register';
 import User from './Components/User/User';
 import Admin from './Components/Admin/Admin';
+import Leave from './Components/Leave/Leave';
 import NotFound from './Components/NotFound/NotFound';
 
 //Check for token
@@ -47,6 +48,7 @@ class App extends Component {
 							<Route path='/register' exact component={Register} />
 							<Route path='/user' exact component={User} />
 							<Route path='/admin' exact component={Admin} />
+							<Route path='/leave' exact component={Leave} />
 							<Route path='*' component={NotFound} />
 						</Switch>
 					</Router>
