@@ -5,7 +5,6 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 
 let timerVar, timeDisp, btn, b, d;
-
 function signOutTime() {
 	d = Date().toString();
 	b = 'SignOut Successful!';
@@ -61,7 +60,7 @@ function signInTime() {
 }
 function LeaveTime() {
 	d = Date().toString();
-	b = 'Successfully Request For Leave!';
+	b = 'Leave Request Submitted!';
 	document.getElementById('plog').textContent = b;
 	document.getElementById('date').textContent = d;
 }

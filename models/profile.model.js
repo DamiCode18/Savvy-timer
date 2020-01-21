@@ -9,13 +9,13 @@ const ProfileSchema = new Schema({
 		ref  : 'users'
 	},
 	signIn  : {
-		type : Object
+		type : Date
 	},
 	signOut : {
-		type : Object
+		type : Date
 	},
 	date    : {
-		type : Object
+		type : Date
 	}
 });
 
