@@ -63,19 +63,29 @@ function LeaveTime() {
 	b = 'Leave Request Submitted!';
 	document.getElementById('plog').textContent = b;
 	document.getElementById('date').textContent = d;
-	axios
-		.post('leave', {signIn: new Date(), date: new Date()})
-		.then((res) => {
-			return res.data;
-		})
-		.catch((error) => {
-			return error;
-		});
 }
 
 class User extends Component {
+	state = {
+		Fullname : '',
+		Reason   : '',
+		From     : '',
+		To       : ''
+	};
 	onSubmit = (e) => {
 		e.preventDefault();
+		const userData = {
+			Fullname : this.state.Fullname,
+			Reason   : this.state.Reason,
+			From     : this.state.From,
+			To       : this.state.To
+		};
+		axios.post('leave/', userData).then((res) => console.log(res.data));
+		this.props.history.push('/user');
+	};
+
+	onChange = (e) => {
+		this.setState({[e.target.name]: e.target.value});
 	};
 	render() {
 		const {auth} = this.props;
@@ -144,34 +154,46 @@ class User extends Component {
 												<form onSubmit={this.onSubmit}>
 													<div className='form-group'>
 														<input
+															value={this.state.Fullname}
 															className='form-control'
 															type='text'
 															placeholder='Full Name'
 															required
+															name='Fullname'
+															onChange={this.onChange}
 														/>
 													</div>
 													<div className='form-group'>
 														<input
-															className='form-control'
-															type='text'
-															placeholder='Department'
-															required
-														/>
-													</div>
-													<div className='form-group'>
-														<input
+															value={this.state.Reason}
 															className='form-control'
 															type='text'
 															placeholder='Reason For Leave'
 															required
+															name='Reason'
+															onChange={this.onChange}
 														/>
 													</div>
 													<div className='form-group'>
 														<input
+															value={this.state.From}
 															className='form-control'
 															type='text'
-															placeholder='Duration'
+															placeholder='From'
 															required
+															name='From'
+															onChange={this.onChange}
+														/>
+													</div>
+													<div className='form-group'>
+														<input
+															value={this.state.To}
+															className='form-control'
+															type='text'
+															placeholder='To'
+															required
+															name='To'
+															onChange={this.onChange}
 														/>
 													</div>
 													<input
@@ -179,6 +201,7 @@ class User extends Component {
 														className='btn btn-primary'
 														value='Submit Request'
 														onClick={LeaveTime}
+														data-dismiss='modal'
 													/>
 												</form>
 											</div>
