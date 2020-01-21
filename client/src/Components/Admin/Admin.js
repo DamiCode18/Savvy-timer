@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Loader from '../../Components/Loader/Loader';
 import Moment from 'react-moment';
@@ -48,24 +47,16 @@ class DataList extends Component {
 							<tbody>
 								{datas.map((data) => {
 									return (
-										<tr>
+										<tr key={data._id}>
+											<td>{data.user.firstname + ' ' + data.user.lastname}</td>
 											<td>
-												<p key={data._id}>{data.user.firstname + ' ' + data.user.lastname}</p>
+												<Moment format='YYYY-MM-DD'>{data.date}</Moment>
 											</td>
 											<td>
-												<p key={data._id}>
-													<Moment format='YYYY-MM-DD'>{data.date}</Moment>
-												</p>
+												<Moment format='h:mm:ss a'>{data.signIn}</Moment>
 											</td>
 											<td>
-												<p key={data._id}>
-													<Moment format='h:mm:ss a'>{data.signIn}</Moment>
-												</p>
-											</td>
-											<td>
-												<p key={data._id}>
-													<Moment format='h:mm:ss a'>{data.signOut}</Moment>
-												</p>
+												<Moment format='h:mm:ss a'>{data.signOut}</Moment>
 											</td>
 										</tr>
 									);
