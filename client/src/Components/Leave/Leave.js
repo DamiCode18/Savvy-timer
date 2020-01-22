@@ -69,8 +69,10 @@ class LeaveList extends Component {
 													type='button'
 													value='Approve'
 													onClick={Approve}
+													style={{borderRadius: '50px'}}
 												/>
 												<input
+													style={{borderRadius: '50px'}}
 													className='btn btn-danger px-3'
 													type='button'
 													value='Reject'
