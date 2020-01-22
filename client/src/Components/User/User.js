@@ -82,7 +82,7 @@ class User extends Component {
 			To       : this.state.To,
 			Status   : this.state.Status
 		};
-		axios.post('leave/', userData).then((res) => console.log(res.data));
+		axios.post('leave', userData).then((res) => console.log(res.data));
 		console.log(userData);
 	};
 

@@ -16,7 +16,7 @@ class LeaveList extends Component {
 	};
 	componentDidMount() {
 		axios
-			.get('/leave/')
+			.get('/leave/datas')
 			.then((response) => {
 				this.setState({
 					datas    : response.data,

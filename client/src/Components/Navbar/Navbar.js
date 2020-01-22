@@ -53,9 +53,9 @@ class Navbar extends Component {
 					</Link>
 				</li>
 				<li className='nav-item active m-auto'>
-					<Link className='nav-link' to='/user'>
+					<Link className='nav-link' to='/leave'>
 						{/* <span className='iconify' data-icon='fa-facebook' /> */}
-						Profile
+						Leave
 					</Link>
 				</li>
 				<li className='nav-item m-auto'>

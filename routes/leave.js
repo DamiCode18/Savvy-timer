@@ -5,7 +5,7 @@ const passport = require('passport');
 //Load Profile model
 const Leave = require('../models/leave.model');
 
-router.get('/', (req, res) => {
+router.get('/datas', passport.authenticate('jwt', {session: false}), (req, res) => {
 	Leave.find()
 		.then((leaves) => {
 			res.json(leaves);
