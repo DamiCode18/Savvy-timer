@@ -18,12 +18,14 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	const Reason = req.body.Reason;
 	const From = req.body.From;
 	const To = req.body.To;
+	const Status = req.body.Status;
 
 	const newLeave = new Leave({
 		Fullname,
 		Reason,
 		From,
-		To
+		To,
+		Status
 	});
 
 	newLeave

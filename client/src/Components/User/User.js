@@ -70,7 +70,8 @@ class User extends Component {
 		Fullname : '',
 		Reason   : '',
 		From     : '',
-		To       : ''
+		To       : '',
+		Status   : 'Pending'
 	};
 	onSubmit = (e) => {
 		e.preventDefault();
@@ -78,10 +79,11 @@ class User extends Component {
 			Fullname : this.state.Fullname,
 			Reason   : this.state.Reason,
 			From     : this.state.From,
-			To       : this.state.To
+			To       : this.state.To,
+			Status   : this.state.Status
 		};
 		axios.post('leave/', userData).then((res) => console.log(res.data));
-		this.props.history.push('/user');
+		console.log(userData);
 	};
 
 	onChange = (e) => {
@@ -194,6 +196,17 @@ class User extends Component {
 															required
 															name='To'
 															onChange={this.onChange}
+														/>
+													</div>
+													<div className='form-group'>
+														<input
+															value={this.state.Status}
+															className='form-control not-allowed'
+															type='text'
+															placeholder='Status'
+															required
+															name='Status'
+															readOnly
 														/>
 													</div>
 													<input

@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Loader from '../../Components/Loader/Loader';
-import Moment from 'react-moment';
+import './Leave.css';
+function Approve() {
+	document.getElementById('pend').textContent = 'Approved!';
+}
+function Reject() {
+	document.getElementById('pend').textContent = 'Rejected!';
+}
 
 class LeaveList extends Component {
 	state = {
@@ -10,13 +16,12 @@ class LeaveList extends Component {
 	};
 	componentDidMount() {
 		axios
-			.get('/leave/datas')
+			.get('/leave/')
 			.then((response) => {
 				this.setState({
 					datas    : response.data,
 					isLoaded : true
 				});
-				console.log(this.state.datas);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -24,7 +29,7 @@ class LeaveList extends Component {
 	}
 
 	render() {
-		var {isLoaded} = this.state;
+		var {datas, isLoaded} = this.state;
 		if (!isLoaded) {
 			return (
 				<div>
@@ -33,7 +38,7 @@ class LeaveList extends Component {
 			);
 		} else {
 			return (
-				<div className='container-fluid text-center'>
+				<div className='container-fluid text-center leave'>
 					<h3>Leave Request Lists</h3>
 					<div className='row'>
 						<table className='table table-dark'>
@@ -43,18 +48,38 @@ class LeaveList extends Component {
 									<th>Reason</th>
 									<th>From</th>
 									<th>To</th>
+									<th>Status</th>
+									<th>Actions</th>
 								</tr>
 							</thead>
 							<tbody>
-								{/* {datas.map((data) => {
+								{datas.map((data) => {
 									return (
 										<tr key={data._id}>
-											<td />
-											<td />
-											<td />
+											<td>{data.Fullname}</td>
+											<td>{data.Reason}</td>
+											<td>{data.From}</td>
+											<td>{data.To}</td>
+											<td id='pend'>
+												<p>Pending</p>
+											</td>
+											<td>
+												<input
+													className='btn btn-primary m-1 px-3'
+													type='button'
+													value='Approve'
+													onClick={Approve}
+												/>
+												<input
+													className='btn btn-danger px-3'
+													type='button'
+													value='Reject'
+													onClick={Reject}
+												/>
+											</td>
 										</tr>
 									);
-								})} */}
+								})}
 							</tbody>
 						</table>
 					</div>
