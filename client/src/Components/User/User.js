@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import img1 from '../../images/business-people-laptops-mobile-phones-600w-1298298010.jpg';
+import img1 from '../../images/undraw_time_management_30iu.png';
 import './User.css';
 import axios from 'axios';
 import {connect} from 'react-redux';

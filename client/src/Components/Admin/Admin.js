@@ -15,7 +15,6 @@ class DataList extends Component {
 					datas    : response.data,
 					isLoaded : true
 				});
-				console.log(this.state.datas);
 			})
 			.catch((err) => {
 				console.log(err);
