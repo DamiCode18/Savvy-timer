@@ -58,31 +58,26 @@ function signInTime() {
 		document.getElementById('timer').textContent = timeDisp;
 	}
 }
-function LeaveTime() {
-	d = Date().toString();
-	b = 'Leave Request Submitted!';
-	document.getElementById('plog').textContent = b;
-	document.getElementById('date').textContent = d;
-}
 
 class User extends Component {
 	state = {
 		Fullname : '',
 		Reason   : '',
 		From     : '',
-		To       : '',
-		Status   : 'Pending'
+		To       : ''
 	};
+
 	onSubmit = (e) => {
 		e.preventDefault();
 		const userData = {
 			Fullname : this.state.Fullname,
 			Reason   : this.state.Reason,
 			From     : this.state.From,
-			To       : this.state.To,
-			Status   : this.state.Status
+			To       : this.state.To
 		};
-		axios.post('leave', userData).then((res) => console.log(res.data));
+		axios.post('leave', userData).then((res) => res.data).catch((err) => {
+			console.log(err);
+		});
 		console.log(userData);
 	};
 
@@ -153,7 +148,7 @@ class User extends Component {
 												</button>
 											</div>
 											<div className='modal-body'>
-												<form onSubmit={this.onSubmit}>
+												<form noValidate onSubmit={this.onSubmit}>
 													<div className='form-group'>
 														<input
 															value={this.state.Fullname}
@@ -198,23 +193,12 @@ class User extends Component {
 															onChange={this.onChange}
 														/>
 													</div>
-													<div className='form-group'>
-														<input
-															value={this.state.Status}
-															className='form-control not-allowed'
-															type='text'
-															placeholder='Status'
-															required
-															name='Status'
-															readOnly
-														/>
-													</div>
 													<input
 														type='submit'
 														className='btn btn-primary'
 														value='Submit Request'
-														onClick={LeaveTime}
 														data-dismiss='modal'
+														onClick={this.onSubmit}
 													/>
 												</form>
 											</div>

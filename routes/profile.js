@@ -44,8 +44,16 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	// Get Data to be saved to database
 	const profileData = {};
 	profileData.user = req.user.id;
-	if (req.body.signIn) profileData.signIn = req.body.signIn;
-	if (req.body.signOut) profileData.signOut = req.body.signOut;
+	if (req.body.signIn) {
+		profileData.signIn = req.body.signIn;
+	} else {
+		profileData.signIn = null;
+	}
+	if (req.body.signOut) {
+		profileData.signOut = req.body.signOut;
+	} else {
+		profileData.signOut = null;
+	}
 	if (req.body.date) profileData.date = req.body.date;
 
 	//Create

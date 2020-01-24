@@ -19,9 +19,6 @@ const LeaveSchema = new Schema({
 	To       : {
 		type     : String,
 		required : true
-	},
-	Status   : {
-		type : String
 	}
 });
 
