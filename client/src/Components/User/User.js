@@ -78,7 +78,6 @@ class User extends Component {
 		axios.post('leave', userData).then((res) => res.data).catch((err) => {
 			console.log(err);
 		});
-		console.log(userData);
 	};
 
 	onChange = (e) => {
