@@ -46,29 +46,23 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	profileData.user = req.user.id;
 	if (req.body.signIn) {
 		profileData.signIn = req.body.signIn;
-	} else {
-		profileData.signIn = null;
 	}
 	if (req.body.signOut) {
 		profileData.signOut = req.body.signOut;
-	} else {
-		profileData.signOut = null;
 	}
 	if (req.body.date) profileData.date = req.body.date;
 
-	//Create
-	new Profile(profileData).save().then((profile) => res.json(profile));
-
-	// Profile.findOne({user: req.user.id}).then((profile) => {
-	// 	if (profile) {
-	// 		//update
-	// 		Profile.findOneAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
-	// 			res.json(profile)
-	// 		);
-	// 	} else {
-
-	// 	}
-	// });
+	Profile.findOne({user: req.user.id}).then((profile) => {
+		if (profile) {
+			//update
+			Profile.findOneAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
+				res.json(profile)
+			);
+		} else {
+			//Create
+			new Profile(profileData).save().then((profile) => res.json(profile));
+		}
+	});
 });
 
 module.exports = router;

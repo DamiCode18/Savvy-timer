@@ -51,12 +51,20 @@ class DataList extends Component {
 											<td>
 												<Moment format='YYYY-MM-DD'>{data.date}</Moment>
 											</td>
-											<td>
-												<Moment format='h:mm:ss a'>{data.signIn}</Moment>
-											</td>
-											<td>
-												<Moment format='h:mm:ss a'>{data.signOut}</Moment>
-											</td>
+											{data.signIn === null ? (
+												<td>{''}</td>
+											) : (
+												<td>
+													<Moment format='h:mm:ss a'>{data.signIn}</Moment>
+												</td>
+											)}
+											{data.signOut === null ? (
+												<td>{''}</td>
+											) : (
+												<td>
+													<Moment format='h:mm:ss a'>{data.signOut}</Moment>
+												</td>
+											)}
 										</tr>
 									);
 								})}
