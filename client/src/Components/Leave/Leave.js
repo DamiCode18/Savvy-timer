@@ -29,7 +29,7 @@ class LeaveList extends Component {
 	}
 
 	render() {
-		var {datas, isLoaded} = this.state;
+		const {datas, isLoaded} = this.state;
 		if (!isLoaded) {
 			return (
 				<div>
