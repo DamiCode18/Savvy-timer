@@ -1,7 +1,7 @@
-.register {
-	background: #e7e8eb;
-	height: 550px;
-}
 .width {
-	width: 400px;
+	max-width: 400px;
+}
+.form {
+	margin: auto;
+	max-width: 450px;
 }

@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logoutUser} from '../../actions/authActions';
 import {Link} from 'react-router-dom';
-import img1 from '../../images/nlogo.png';
+import img1 from '../../images/Group 33.svg';
 import img2 from '../../images/avatar.jpeg';
 import './Navbar.css';
 
