@@ -48,13 +48,13 @@ class Login extends Component {
 			<div className=''>
 				<div className='row mx-auto'>
 					<div className='col-md-5 col-sm-12 text-center mt-5'>
-						<h1 style={{color: '#2c8496', fontWeight: 'bolder'}}>Welcome back,</h1>
-						<p style={{color: '#2c8496'}}>Login to continue</p>
+						<h1 style={{color: '#0d3859', fontWeight: 'bolder'}}>Welcome back,</h1>
+						<p style={{color: '#0d3859'}}>Login to continue</p>
 						<img src={logImg} alt='img' className='logImg' />
 					</div>
 					<div className='width p-5 m-auto col-md-7 col-sm-12'>
 						<div className='pb-3'>
-							<h3 style={{textAlign: 'center', color: '#2c8496'}}>Login</h3>
+							<h3 style={{textAlign: 'center', color: '#0d3859'}}>Login</h3>
 						</div>
 						<form className='form' noValidate onSubmit={this.onSubmit}>
 							<div className='form-group'>
@@ -84,9 +84,15 @@ class Login extends Component {
 								{errors.password && <div className='invalid-feedback'>{errors.password}</div>}
 							</div>
 							<button
-								style={{borderRadius: '50px', padding: '10px', width: '100%'}}
+								style={{
+									borderRadius: '50px',
+									padding: '10px',
+									width: '100%',
+									background: '#4299E1',
+									color: '#fff'
+								}}
 								type='submit'
-								className='btn btn-info'
+								className='btn'
 							>
 								Login
 							</button>

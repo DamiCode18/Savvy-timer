@@ -47,11 +47,11 @@ class Register extends Component {
 			<div className='register mt-2'>
 				<div className='row mx-auto'>
 					<div className='col-md-5 col-sm-12 text-center mt-5'>
-						<h1 style={{color: '#2c8496', fontWeight: 'bolder'}}>Create an account</h1>
+						<h1 style={{color: '#0d3859', fontWeight: 'bolder'}}>Create an account</h1>
 					</div>
 					<div className='width p-5 m-auto col-md-7 col-sm-12'>
 						<div className='mb-4'>
-							<h3 style={{textAlign: 'center', color: '#2C8496'}}>Register</h3>
+							<h3 style={{textAlign: 'center', color: '#0d3859'}}>Register</h3>
 						</div>
 						<form noValidate onSubmit={this.onSubmit} className='form'>
 							<div className='form-row'>
@@ -110,7 +110,13 @@ class Register extends Component {
 								{errors.password && <div className='invalid-feedback'>{errors.password}</div>}
 							</div>
 							<button
-								style={{borderRadius: '50px', padding: '10px', width: '100%'}}
+								style={{
+									borderRadius: '50px',
+									padding: '10px',
+									width: '100%',
+									background: '#4299E1',
+									color: '#fff'
+								}}
 								type='submit'
 								className='btn btn-info'
 							>
