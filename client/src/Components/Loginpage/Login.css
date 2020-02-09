@@ -5,3 +5,14 @@
 	margin: auto;
 	max-width: 450px;
 }
+.logImg {
+	height: 20rem;
+	width: 25rem;
+}
+
+@media only screen and (max-width: 400px) {
+	.logImg {
+		height: 20rem;
+		width: 20rem;
+	}
+}

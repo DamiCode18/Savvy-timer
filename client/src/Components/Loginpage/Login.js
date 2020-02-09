@@ -50,7 +50,7 @@ class Login extends Component {
 					<div className='col-md-5 col-sm-12 text-center mt-5'>
 						<h1 style={{color: '#2c8496', fontWeight: 'bolder'}}>Welcome back,</h1>
 						<p style={{color: '#2c8496'}}>Login to continue</p>
-						<img src={logImg} alt='img' style={{height: '20rem', width: '25rem'}} />
+						<img src={logImg} alt='img' className='logImg' />
 					</div>
 					<div className='width p-5 m-auto col-md-7 col-sm-12'>
 						<div className='pb-3'>
