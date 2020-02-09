@@ -21,19 +21,16 @@ class Navbar extends Component {
 			<ul className='navbar-nav ml-auto'>
 				<li className='nav-item active m-auto'>
 					<Link className='nav-link' to='/'>
-						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						Home
 					</Link>
 				</li>
 				<li className='nav-item m-auto'>
 					<Link className='nav-link' to='/About'>
-						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						About
 					</Link>
 				</li>
 				<li className='nav-item m-auto'>
 					<Link className='nav-link' to='/login'>
-						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						Login
 					</Link>
 				</li>
@@ -48,13 +45,11 @@ class Navbar extends Component {
 			<ul className='navbar-nav ml-auto'>
 				<li className='nav-item active m-auto'>
 					<Link className='nav-link' to='/'>
-						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						Home
 					</Link>
 				</li>
 				<li className='nav-item active m-auto'>
 					<Link className='nav-link' to='/leaveList'>
-						{/* <span className='iconify' data-icon='fa-facebook' /> */}
 						Leave
 					</Link>
 				</li>
