@@ -49,7 +49,7 @@ class Register extends Component {
 					<div className='col-md-5 col-sm-12 text-center mt-5'>
 						<h1 style={{color: '#0d3859', fontWeight: 'bolder'}}>Create an account</h1>
 					</div>
-					<div className='width p-5 m-auto col-md-7 col-sm-12'>
+					<div className='p-5 m-auto col-md-7 col-sm-12'>
 						<form noValidate onSubmit={this.onSubmit} className='form'>
 							<div className='form-row'>
 								<div className='form-group col-md-6 mb-4'>

@@ -49,6 +49,15 @@ class Navbar extends Component {
 				);
 			}
 		})();
+		let navToggle = (function toggle() {
+			if (string.includes('login')) {
+				return '';
+			} else if (string.includes('register')) {
+				return '';
+			} else {
+				return <span className='navbar-toggler-icon' />;
+			}
+		})();
 		const userLink = (
 			<ul className='navbar-nav ml-auto'>
 				<li className='nav-item active m-auto'>
@@ -90,10 +99,9 @@ class Navbar extends Component {
 						aria-expanded='false'
 						aria-label='Toggle navigation'
 					>
-						<span className='navbar-toggler-icon' />
+						{isAuthenticated ? <span className='navbar-toggler-icon' /> : navToggle}
 					</button>
 					<div className='collapse navbar-collapse' id='navbar1'>
-						<ul className='navbar-nav' />
 						{isAuthenticated ? userLink : tenary}
 					</div>
 				</nav>

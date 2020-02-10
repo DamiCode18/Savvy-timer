@@ -52,7 +52,7 @@ class Login extends Component {
 						<p style={{color: '#0d3859', fontWeight: '500'}}>Login to continue</p>
 						{/* <img src={logImg} alt='img' className='logImg' /> */}
 					</div>
-					<div className='width p-5 m-auto col-md-7 col-sm-12'>
+					<div className='p-5 m-auto col-md-7 col-sm-12'>
 						<form className='form' noValidate onSubmit={this.onSubmit}>
 							<div className='form-group mb-4'>
 								<label htmlFor='email'>Email</label>
