@@ -6,7 +6,9 @@
 	height: 20rem;
 	width: 25rem;
 }
-
+.label {
+	margin-bottom: 0;
+}
 input[type='password'],
 input[type='email'] {
 	padding: 25px;

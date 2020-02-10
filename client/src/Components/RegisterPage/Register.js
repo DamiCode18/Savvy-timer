@@ -121,7 +121,8 @@ class Register extends Component {
 						</button>
 						<div className='mt-2'>
 							<p>
-								Already Have an Account!<Link className='ml-1' to='/login'>
+								Already Have an Account!{' '}
+								<Link className='ml-1' to='/login'>
 									Login
 								</Link>
 							</p>
