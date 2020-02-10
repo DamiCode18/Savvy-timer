@@ -50,12 +50,9 @@ class Register extends Component {
 						<h1 style={{color: '#0d3859', fontWeight: 'bolder'}}>Create an account</h1>
 					</div>
 					<div className='width p-5 m-auto col-md-7 col-sm-12'>
-						<div className='mb-4'>
-							<h3 style={{textAlign: 'center', color: '#0d3859'}}>Register</h3>
-						</div>
 						<form noValidate onSubmit={this.onSubmit} className='form'>
 							<div className='form-row'>
-								<div className='form-group col-md-6 my-1'>
+								<div className='form-group col-md-6 mb-4'>
 									<label htmlFor='firstname'>Firstname</label>
 									<input
 										type='text'
@@ -68,7 +65,7 @@ class Register extends Component {
 									/>
 									{errors.firstname && <div className='invalid-feedback'>{errors.firstname}</div>}
 								</div>
-								<div className='form-group col-md-6 my-1'>
+								<div className='form-group col-md-6 mb-4'>
 									<label htmlFor='lastname'>Lastname</label>
 									<input
 										type='text'
@@ -83,7 +80,7 @@ class Register extends Component {
 								</div>
 							</div>
 
-							<div className='form-group my-1'>
+							<div className='form-group mb-4'>
 								<label htmlFor='email'>Email</label>
 								<input
 									type='email'
@@ -96,7 +93,7 @@ class Register extends Component {
 								/>
 								{errors.email && <div className='invalid-feedback'>{errors.email}</div>}
 							</div>
-							<div className='form-group'>
+							<div className='form-group mb-4'>
 								<label htmlFor='password'>Password</label>
 								<input
 									type='password'
@@ -111,11 +108,12 @@ class Register extends Component {
 							</div>
 							<button
 								style={{
-									borderRadius: '50px',
-									padding: '10px',
-									width: '100%',
-									background: '#4299E1',
-									color: '#fff'
+									borderRadius : '3px',
+									padding      : '10px',
+									width        : '100%',
+									background   : '#4299E1',
+									color        : '#fff',
+									marginTop    : '12px'
 								}}
 								type='submit'
 								className='btn btn-info'

@@ -49,15 +49,12 @@ class Login extends Component {
 				<div className='row mx-auto'>
 					<div className='col-md-5 col-sm-12 text-center mt-5'>
 						<h1 style={{color: '#0d3859', fontWeight: 'bolder'}}>Welcome back,</h1>
-						<p style={{color: '#0d3859'}}>Login to continue</p>
-						<img src={logImg} alt='img' className='logImg' />
+						<p style={{color: '#0d3859', fontWeight: '500'}}>Login to continue</p>
+						{/* <img src={logImg} alt='img' className='logImg' /> */}
 					</div>
 					<div className='width p-5 m-auto col-md-7 col-sm-12'>
-						<div className='pb-3'>
-							<h3 style={{textAlign: 'center', color: '#0d3859'}}>Login</h3>
-						</div>
 						<form className='form' noValidate onSubmit={this.onSubmit}>
-							<div className='form-group'>
+							<div className='form-group mb-4'>
 								<label htmlFor='email'>Email</label>
 								<input
 									value={this.state.email}
@@ -70,7 +67,7 @@ class Login extends Component {
 								/>
 								{errors.email && <div className='invalid-feedback'>{errors.email}</div>}
 							</div>
-							<div className='form-group'>
+							<div className='form-group mb-4'>
 								<label htmlFor='password'>Password</label>
 								<input
 									type='password'
@@ -85,11 +82,12 @@ class Login extends Component {
 							</div>
 							<button
 								style={{
-									borderRadius: '50px',
-									padding: '10px',
-									width: '100%',
-									background: '#4299E1',
-									color: '#fff'
+									borderRadius : '3px',
+									padding      : '10px',
+									width        : '100%',
+									background   : '#4299E1',
+									color        : '#fff',
+									marginTop    : '15px'
 								}}
 								type='submit'
 								className='btn'
@@ -99,7 +97,7 @@ class Login extends Component {
 							<div className='mt-2'>
 								<p>
 									You Don't Have an Account Yet?<Link className='ml-1' to='/register'>
-										Register
+										Create one now
 									</Link>
 								</p>
 							</div>

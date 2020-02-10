@@ -17,30 +17,34 @@ class Navbar extends Component {
 	};
 	render() {
 		const {isAuthenticated} = this.props.auth;
-		const LoginRegLink = (
-			<ul className='navbar-nav ml-auto'>
-				<li className='nav-item active m-auto'>
-					<Link className='nav-link' to='/'>
-						Home
-					</Link>
-				</li>
-				<li className='nav-item m-auto'>
-					<Link className='nav-link' to='/About'>
-						About
-					</Link>
-				</li>
-				<li className='nav-item m-auto'>
-					<Link className='nav-link' to='/login'>
-						Login
-					</Link>
-				</li>
-				<li className='nav-item m-auto'>
-					<Link className='nav-link' to='/register'>
-						Register
-					</Link>
-				</li>
-			</ul>
-		);
+		const string = window.location.href;
+		let tenary = (function tenary() {
+			if (string.includes('login')) {
+				return <ul className='navbar-nav ml-auto' />;
+			} else if (string.includes('register')) {
+				return <ul className='navbar-nav ml-auto' />;
+			} else {
+				return (
+					<ul className='navbar-nav ml-auto'>
+						<li className='nav-item m-auto'>
+							<Link className='nav-link' to='/login'>
+								Login
+							</Link>
+						</li>
+						<li className='nav-item m-auto'>
+							<Link className='nav-link' to='/register'>
+								Register
+							</Link>
+						</li>
+					</ul>
+				);
+			}
+		})();
+		// let tenary = string.includes('login') ? (
+		// 	<ul className='navbar-nav ml-auto' />
+		// ) : (
+
+		// );
 		const userLink = (
 			<ul className='navbar-nav ml-auto'>
 				<li className='nav-item active m-auto'>
@@ -95,7 +99,7 @@ class Navbar extends Component {
 					</button>
 					<div className='collapse navbar-collapse' id='navbar1'>
 						<ul className='navbar-nav' />
-						{isAuthenticated ? userLink : LoginRegLink}
+						{isAuthenticated ? userLink : tenary}
 					</div>
 				</nav>
 			</div>
