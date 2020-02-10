@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {logoutUser} from '../../actions/authActions';
 import {Link} from 'react-router-dom';
 import img1 from '../../images/Group 33.svg';
-import img2 from '../../images/avatar.jpeg';
+import img2 from '../../images/user.svg';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -27,54 +27,49 @@ class Navbar extends Component {
 				return (
 					<ul className='navbar-nav ml-auto'>
 						<li className='nav-item m-auto'>
-							<Link className='nav-link' to='/login'>
-								Login
+							<Link className='nav-link mx-2' to='/'>
+								Home
 							</Link>
 						</li>
 						<li className='nav-item m-auto'>
-							<Link className='nav-link' to='/register'>
-								Register
+							<Link className='nav-link mx-2' to='/contact'>
+								Contact us
+							</Link>
+						</li>
+						<li className='nav-item m-auto'>
+							<Link
+								className='nav-link px-4 mx-3'
+								to='/login'
+								style={{border: '1px solid #4299E1', color: '#4299E1', borderRadius: '5px'}}
+							>
+								Login
 							</Link>
 						</li>
 					</ul>
 				);
 			}
 		})();
-		// let tenary = string.includes('login') ? (
-		// 	<ul className='navbar-nav ml-auto' />
-		// ) : (
-
-		// );
 		const userLink = (
 			<ul className='navbar-nav ml-auto'>
 				<li className='nav-item active m-auto'>
-					<Link className='nav-link' to='/'>
-						Home
+					<Link className='nav-link' to='/user'>
+						Attendance
 					</Link>
 				</li>
-				<li className='nav-item active m-auto'>
+				<li className='nav-item m-auto'>
 					<Link className='nav-link' to='/leaveList'>
 						Leave
 					</Link>
 				</li>
 				<li className='nav-item m-auto'>
-					<Link
-						style={{borderRadius: '50px', width: '100px'}}
-						className='nav-link btn adminBtn px-4'
-						to='/admin'
-					>
+					<Link className='nav-link' to='/admin'>
 						Admin
 					</Link>
 				</li>
 				<li className='nav-item m-auto'>
-					<a href='/' style={{color: '#fff'}} className='nav-link btn btn-info px-4' onClick={this.logout}>
-						<img
-							className='rounded-circle'
-							src={img2}
-							alt='user img'
-							style={{width: '25px', marginRight: '5px'}}
-						/>
+					<a href='/' style={{color: '#4299E1'}} className='nav-link btn px-4' onClick={this.logout}>
 						Logout
+						<img className='' src={img2} alt='user img' style={{width: '25px', marginRight: '5px'}} />
 					</a>
 				</li>
 			</ul>

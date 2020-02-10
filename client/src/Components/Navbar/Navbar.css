@@ -2,10 +2,3 @@
 	border: none;
 	outline: none;
 }
-.adminBtn {
-	color: #2c8496 !important;
-}
-.adminBtn:hover {
-	color: #fff !important;
-	background: #2c8496 !important;
-}
