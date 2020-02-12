@@ -5,66 +5,66 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 
 let timerVar, timeDisp, btn, b, d;
-function signOutTime() {
-	d = Date().toString();
-	b = 'SignOut Successful!';
-	document.getElementById('plog').textContent = b;
-	document.getElementById('date').textContent = d;
-	btn = document.getElementById('so');
-	btn.disabled = true;
-	btn = document.getElementById('si');
-	btn.disabled = false;
-	axios
-		.post('profile', {signOut: new Date(), date: new Date()})
-		.then((res) => {
-			return res.data;
-		})
-		.catch((error) => {
-			return error;
-		});
-	clearTimeout(timerVar);
-	timeDisp = 'Work Time => Closed!!!';
-	document.getElementById('timer').textContent = timeDisp;
-}
-function signInTime() {
-	d = Date().toString();
-	b = 'SignIn Successful!';
-	document.getElementById('plog').textContent = b;
-	document.getElementById('date').textContent = d;
-	btn = document.getElementById('si');
-	btn.disabled = true;
-	btn = document.getElementById('so');
-	btn.disabled = false;
-	btn.classList.add('not-allowed');
-	axios
-		.post('profile', {signIn: new Date(), date: new Date()})
-		.then((res) => {
-			return res.data;
-		})
-		.catch((error) => {
-			return error;
-		});
-	timerVar = setInterval(countTimer, 1000);
-	let totalSeconds = 0;
-	function countTimer() {
-		++totalSeconds;
-		let hour = Math.floor(totalSeconds / 3600);
-		let minute = Math.floor((totalSeconds - hour * 3600) / 60);
-		let seconds = totalSeconds - (hour * 3600 + minute * 60);
-		if (hour < 10) hour = '0' + hour;
-		if (minute < 10) minute = '0' + minute;
-		if (seconds < 10) seconds = '0' + seconds;
-		timeDisp = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
-		document.getElementById('timer').textContent = timeDisp;
-	}
-}
-
 class User extends Component {
 	state = {
 		Fullname : '',
 		Reason   : '',
 		From     : '',
 		To       : ''
+	};
+
+	signInTime = () => {
+		d = Date().toString();
+		b = 'SignIn Successful!';
+		document.getElementById('plog').textContent = b;
+		document.getElementById('date').textContent = d;
+		btn = document.getElementById('si');
+		btn.disabled = true;
+		btn = document.getElementById('so');
+		btn.disabled = false;
+		btn.classList.add('not-allowed');
+		axios
+			.post('profile', {signIn: new Date(), date: new Date()})
+			.then((res) => {
+				return res.data;
+			})
+			.catch((error) => {
+				return error;
+			});
+		timerVar = setInterval(countTimer, 1000);
+		let totalSeconds = 0;
+		function countTimer() {
+			++totalSeconds;
+			let hour = Math.floor(totalSeconds / 3600);
+			let minute = Math.floor((totalSeconds - hour * 3600) / 60);
+			let seconds = totalSeconds - (hour * 3600 + minute * 60);
+			if (hour < 10) hour = '0' + hour;
+			if (minute < 10) minute = '0' + minute;
+			if (seconds < 10) seconds = '0' + seconds;
+			timeDisp = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
+			document.getElementById('timer').textContent = timeDisp;
+		}
+	};
+	signOutTime = () => {
+		d = Date().toString();
+		b = 'SignOut Successful!';
+		document.getElementById('plog').textContent = b;
+		document.getElementById('date').textContent = d;
+		btn = document.getElementById('so');
+		btn.disabled = true;
+		btn = document.getElementById('si');
+		btn.disabled = false;
+		axios
+			.post('profile', {signOut: new Date(), date: new Date()})
+			.then((res) => {
+				return res.data;
+			})
+			.catch((error) => {
+				return error;
+			});
+		clearTimeout(timerVar);
+		timeDisp = 'Work Time => Closed!!!';
+		document.getElementById('timer').textContent = timeDisp;
 	};
 
 	onSubmit = (e) => {
@@ -100,7 +100,7 @@ class User extends Component {
 								<div id='timer' className='p-3' />
 								<button
 									className='btn bbb not-allowed'
-									onClick={signInTime}
+									onClick={this.signInTime}
 									id='si'
 									style={{background: 'green', color: 'white'}}
 								>
@@ -108,7 +108,7 @@ class User extends Component {
 								</button>
 								<button
 									className='btn btn-danger mx-auto bbb not-allowed'
-									onClick={signOutTime}
+									onClick={this.signOutTime}
 									id='so'
 									style={{color: 'white'}}
 								>
