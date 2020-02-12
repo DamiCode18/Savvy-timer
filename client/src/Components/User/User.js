@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import img1 from '../../images/undraw_time_management_30iu.png';
+import img1 from '../../images/calendar (1) 1.svg';
 import './User.css';
 import axios from 'axios';
 import {connect} from 'react-redux';
@@ -88,33 +88,67 @@ class User extends Component {
 		const name = auth.user.firstname;
 		const dispName = name.charAt(0).toUpperCase() + name.slice(1);
 		return (
-			<div className='userSection container-fluid'>
+			<div className='userSection container'>
 				<div className='row'>
-					<div className='container text-center col-lg-6 col-md-6 col-sm-12'>
-						<img className='userImg' src={img1} alt='img' />
-					</div>
-					<div className='mt-4 col-lg-6 col-md-6 col-sm-12'>
-						<div className='user card'>
-							<h3 className='pt-5 px-3'>Welcome {dispName}</h3>
-							<div className='card-body'>
-								<div id='timer' className='p-3' />
-								<button
-									className='btn bbb not-allowed'
-									onClick={this.signInTime}
-									id='si'
-									style={{background: 'green', color: 'white'}}
+					<div className='container col-lg-6 col-md-6 col-sm-12'>
+						<h3 className='pt-5' style={{color: '#0d3859', fontWeight: 'bolder'}}>
+							Welcome back {dispName},
+						</h3>
+						<button
+							className='btn not-allowed'
+							onClick={this.signInTime}
+							id='si'
+							style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
+						>
+							Punch in for today
+						</button>
+						<div className='card' style={{height: '160px', width: '250px', marginTop: '60px'}}>
+							<div className='row' style={{margin: '0px'}}>
+								<div
+									style={{borderRadius: '3px', width: '50px', height: '60px', background: '#4299E1'}}
 								>
-									SignIn
-								</button>
-								<button
+									<p
+										className='mb-0'
+										style={{
+											color      : '#fff',
+											fontWeight : '500',
+											padding    : '1px',
+											fontSize   : '.8em',
+											textAlign  : 'center'
+										}}
+									>
+										Feb 14th 2019
+									</p>
+								</div>
+								<div className='m-auto'>
+									<p style={{color: '#0d3859', marginTop: '20px'}}>Work time</p>
+									<div
+										id='timer'
+										className=''
+										style={{
+											color      : '#0d3859',
+											fontWeight : 'bold',
+											textAlign  : 'center',
+											marginTop  : '-20px'
+										}}
+									>
+										00:00
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className='m-auto text-center col-lg-6 col-md-6 col-sm-12'>
+						<img src={img1} alt='img' style={{width: '120px', height: '120px'}} />
+						{/* <button
 									className='btn btn-danger mx-auto bbb not-allowed'
 									onClick={this.signOutTime}
 									id='so'
 									style={{color: 'white'}}
 								>
 									SignOut
-								</button>
-								<div className='text-center'>
+								</button> */}
+						{/* <div className='text-center'>
 									<button
 										className='btn mt-5 btn-outline-info bbb'
 										data-toggle='modal'
@@ -203,12 +237,10 @@ class User extends Component {
 											</div>
 										</div>
 									</div>
-								</div>
-								<div className='m-5 text-center'>
-									<p id='plog' />
-									<p id='date' />
-								</div>
-							</div>
+								</div> */}
+						<div className='m-5 text-center'>
+							<p id='plog' />
+							<p id='date' />
 						</div>
 					</div>
 				</div>
