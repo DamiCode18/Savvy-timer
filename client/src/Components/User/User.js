@@ -153,7 +153,7 @@ class User extends Component {
 						</div>
 					</div>
 					<div className='m-auto text-center col-lg-6 col-md-6 col-sm-12'>
-						<img src={img1} alt='img' style={{width: '150px', height: '150px'}} />
+						<img src={img1} alt='img' style={{width: '150px', height: '150px', marginTop: '50px'}} />
 						{/* <div className='text-center'>
 									<button
 										className='btn mt-5 btn-outline-info bbb'
