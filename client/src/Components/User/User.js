@@ -4,7 +4,7 @@ import './User.css';
 import axios from 'axios';
 import {connect} from 'react-redux';
 
-let timerVar, timeDisp, btn, b, d;
+let timerVar, timeDisp, btn, btn2, b, d;
 class User extends Component {
 	state = {
 		Fullname : '',
@@ -18,11 +18,8 @@ class User extends Component {
 		b = 'SignIn Successful!';
 		document.getElementById('plog').textContent = b;
 		document.getElementById('date').textContent = d;
-		btn = document.getElementById('si');
-		btn.disabled = true;
-		btn = document.getElementById('so');
-		btn.disabled = false;
-		btn.classList.add('not-allowed');
+		btn = document.getElementById('dispname').textContent = 'Have a nice day,';
+		btn2 = document.getElementById('si').textContent = 'Punch out';
 		axios
 			.post('profile', {signIn: new Date(), date: new Date()})
 			.then((res) => {
@@ -41,7 +38,7 @@ class User extends Component {
 			if (hour < 10) hour = '0' + hour;
 			if (minute < 10) minute = '0' + minute;
 			if (seconds < 10) seconds = '0' + seconds;
-			timeDisp = 'Work Time => ' + hour + ':' + minute + ':' + seconds;
+			timeDisp = hour + ':' + minute + ':' + seconds;
 			document.getElementById('timer').textContent = timeDisp;
 		}
 	};
@@ -50,10 +47,8 @@ class User extends Component {
 		b = 'SignOut Successful!';
 		document.getElementById('plog').textContent = b;
 		document.getElementById('date').textContent = d;
-		btn = document.getElementById('so');
-		btn.disabled = true;
-		btn = document.getElementById('si');
-		btn.disabled = false;
+		btn = document.getElementById('dispname').textContent = 'Welcome back,';
+		btn2 = document.getElementById('si').textContent = 'Punch in for today';
 		axios
 			.post('profile', {signOut: new Date(), date: new Date()})
 			.then((res) => {
@@ -63,7 +58,7 @@ class User extends Component {
 				return error;
 			});
 		clearTimeout(timerVar);
-		timeDisp = 'Work Time => Closed!!!';
+		timeDisp = 'Closed!!!';
 		document.getElementById('timer').textContent = timeDisp;
 	};
 
@@ -91,17 +86,28 @@ class User extends Component {
 			<div className='userSection container'>
 				<div className='row'>
 					<div className='container col-lg-6 col-md-6 col-sm-12'>
-						<h3 className='pt-5' style={{color: '#0d3859', fontWeight: 'bolder'}}>
+						<h3 id='dispname' className='pt-5' style={{color: '#0d3859', fontWeight: 'bolder'}}>
 							Welcome back {dispName},
 						</h3>
-						<button
-							className='btn p-2'
-							onClick={this.signInTime}
-							id='si'
-							style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
-						>
-							Punch in for today
-						</button>
+						{this.signInTime ? (
+							<button
+								className='btn py-2 px-3'
+								onClick={this.signInTime}
+								id='si'
+								style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
+							>
+								Punch in for today
+							</button>
+						) : (
+							<button
+								className='btn py-2 px-3'
+								onClick={this.signOutTime}
+								id='si'
+								style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
+							>
+								Punch out
+							</button>
+						)}
 						<div className='card' style={{height: '160px', width: '250px', marginTop: '60px'}}>
 							<div className='row' style={{margin: '0px'}}>
 								<div
