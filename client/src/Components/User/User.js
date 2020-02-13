@@ -7,10 +7,11 @@ import {connect} from 'react-redux';
 let timerVar, timeDisp, btn, btn2, b, d;
 class User extends Component {
 	state = {
-		Fullname : '',
-		Reason   : '',
-		From     : '',
-		To       : ''
+		Fullname  : '',
+		Reason    : '',
+		From      : '',
+		To        : '',
+		isPunched : false
 	};
 
 	signInTime = () => {
@@ -18,8 +19,8 @@ class User extends Component {
 		b = 'SignIn Successful!';
 		document.getElementById('plog').textContent = b;
 		document.getElementById('date').textContent = d;
-		btn = document.getElementById('dispname').textContent = 'Have a nice day,';
 		btn2 = document.getElementById('si').textContent = 'Punch out';
+		this.setState({isPunched: true});
 		axios
 			.post('profile', {signIn: new Date(), date: new Date()})
 			.then((res) => {
@@ -47,8 +48,8 @@ class User extends Component {
 		b = 'SignOut Successful!';
 		document.getElementById('plog').textContent = b;
 		document.getElementById('date').textContent = d;
-		btn = document.getElementById('dispname').textContent = 'Welcome back,';
 		btn2 = document.getElementById('si').textContent = 'Punch in for today';
+		this.setState({isPunched: false});
 		axios
 			.post('profile', {signOut: new Date(), date: new Date()})
 			.then((res) => {
@@ -57,9 +58,9 @@ class User extends Component {
 			.catch((error) => {
 				return error;
 			});
-		clearTimeout(timerVar);
-		timeDisp = 'Closed!!!';
+		timeDisp = timeDisp;
 		document.getElementById('timer').textContent = timeDisp;
+		clearTimeout(timerVar);
 	};
 
 	onSubmit = (e) => {
@@ -86,27 +87,34 @@ class User extends Component {
 			<div className='userSection container'>
 				<div className='row'>
 					<div className='container col-lg-6 col-md-6 col-sm-12'>
-						<h3 id='dispname' className='pt-5' style={{color: '#0d3859', fontWeight: 'bolder'}}>
-							Welcome back {dispName},
-						</h3>
-						{this.signInTime ? (
-							<button
-								className='btn py-2 px-3'
-								onClick={this.signInTime}
-								id='si'
-								style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
-							>
-								Punch in for today
-							</button>
+						{!this.state.isPunched ? (
+							<div>
+								<h3 id='dispname' className='pt-5' style={{color: '#0d3859', fontWeight: 'bolder'}}>
+									Welcome back {dispName},
+								</h3>
+								<button
+									className='btn py-2 px-3'
+									onClick={this.signInTime}
+									id='si'
+									style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
+								>
+									Punch in for today
+								</button>
+							</div>
 						) : (
-							<button
-								className='btn py-2 px-3'
-								onClick={this.signOutTime}
-								id='si'
-								style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
-							>
-								Punch out
-							</button>
+							<div>
+								<h3 id='dispname' className='pt-5' style={{color: '#0d3859', fontWeight: 'bolder'}}>
+									Have a nice day {dispName},
+								</h3>
+								<button
+									className='btn py-2 px-3'
+									onClick={this.signOutTime}
+									id='si'
+									style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
+								>
+									Punch out
+								</button>
+							</div>
 						)}
 						<div className='card' style={{height: '160px', width: '250px', marginTop: '60px'}}>
 							<div className='row' style={{margin: '0px'}}>
@@ -146,14 +154,6 @@ class User extends Component {
 					</div>
 					<div className='m-auto text-center col-lg-6 col-md-6 col-sm-12'>
 						<img src={img1} alt='img' style={{width: '150px', height: '150px'}} />
-						{/* <button
-									className='btn btn-danger mx-auto bbb not-allowed'
-									onClick={this.signOutTime}
-									id='so'
-									style={{color: 'white'}}
-								>
-									SignOut
-								</button> */}
 						{/* <div className='text-center'>
 									<button
 										className='btn mt-5 btn-outline-info bbb'
