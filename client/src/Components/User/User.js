@@ -16,10 +16,6 @@ class User extends Component {
 	};
 
 	signInTime = () => {
-		d = Date().toString();
-		b = 'SignIn Successful!';
-		document.getElementById('plog').textContent = b;
-		document.getElementById('date').textContent = d;
 		btn2 = document.getElementById('si').textContent = 'Punch out';
 		this.setState({isPunched: true});
 		axios
@@ -45,10 +41,6 @@ class User extends Component {
 		}
 	};
 	signOutTime = () => {
-		d = Date().toString();
-		b = 'SignOut Successful!';
-		document.getElementById('plog').textContent = b;
-		document.getElementById('date').textContent = d;
 		btn2 = document.getElementById('si').textContent = 'Punch in for today';
 		this.setState({isPunched: false});
 		axios
@@ -97,7 +89,12 @@ class User extends Component {
 									className='btn py-2 px-3'
 									onClick={this.signInTime}
 									id='si'
-									style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
+									style={{
+										color      : '#4299E1',
+										fontWeight : 'bolder',
+										border     : '1px solid #4299E1',
+										boxShadow  : 'none'
+									}}
 								>
 									Punch in for today
 								</button>
@@ -111,13 +108,18 @@ class User extends Component {
 									className='btn py-2 px-3'
 									onClick={this.signOutTime}
 									id='si'
-									style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
+									style={{
+										color      : '#4299E1',
+										fontWeight : 'bolder',
+										border     : '1px solid #4299E1',
+										boxShadow  : 'none'
+									}}
 								>
 									Punch out
 								</button>
 							</div>
 						)}
-						<div className='card' style={{height: '160px', width: '250px', marginTop: '60px'}}>
+						<div className='card dispCard' style={{height: '160px', width: '250px', marginTop: '60px'}}>
 							<div className='row' style={{margin: '0px'}}>
 								<div
 									style={{borderRadius: '3px', width: '50px', height: '60px', background: '#4299E1'}}
@@ -126,7 +128,7 @@ class User extends Component {
 										className='mb-0'
 										style={{
 											color      : '#fff',
-											fontWeight : '500',
+											fontWeight : '800',
 											padding    : '1px',
 											fontSize   : '.8em',
 											textAlign  : 'center'
@@ -154,7 +156,7 @@ class User extends Component {
 						</div>
 					</div>
 					<div className='m-auto text-center col-lg-6 col-md-6 col-sm-12'>
-						<img src={img1} alt='img' style={{width: '150px', height: '150px', marginTop: '50px'}} />
+						<img src={img1} alt='img' style={{width: '150px', height: '150px', marginTop: '20px'}} />
 						{/* <div className='text-center'>
 									<button
 										className='btn mt-5 btn-outline-info bbb'
@@ -245,10 +247,6 @@ class User extends Component {
 										</div>
 									</div>
 								</div> */}
-						<div className='m-5 text-center'>
-							<p id='plog' />
-							<p id='date' />
-						</div>
 					</div>
 				</div>
 			</div>
