@@ -3,6 +3,7 @@ import img1 from '../../images/calendar (1) 1.svg';
 import './User.css';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import Moment from 'react-moment';
 
 let timerVar, timeDisp, btn, btn2, b, d;
 class User extends Component {
@@ -131,7 +132,7 @@ class User extends Component {
 											textAlign  : 'center'
 										}}
 									>
-										Feb 14th 2019
+										<Moment format='MMM Do YYYY'>{Date.now()}</Moment>
 									</p>
 								</div>
 								<div className='m-auto'>
