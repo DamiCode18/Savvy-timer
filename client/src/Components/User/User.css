@@ -58,6 +58,9 @@
 		margin: auto;
 		text-align: center;
 	}
+	.align {
+		text-align: left;
+	}
 	.dispCard {
 		margin-left: auto;
 		margin-right: auto;

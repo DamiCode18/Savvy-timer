@@ -79,7 +79,7 @@ class User extends Component {
 		return (
 			<div className='userSection container'>
 				<div className='row'>
-					<div className='container col-lg-6 col-md-6 col-sm-12'>
+					<div className='container align col-lg-6 col-md-6 col-sm-12'>
 						{!this.state.isPunched ? (
 							<div>
 								<h3 id='dispname' className='pt-5' style={{color: '#0d3859', fontWeight: 'bolder'}}>
