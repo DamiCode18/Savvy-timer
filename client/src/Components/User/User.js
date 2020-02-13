@@ -95,7 +95,7 @@ class User extends Component {
 							Welcome back {dispName},
 						</h3>
 						<button
-							className='btn not-allowed'
+							className='btn p-2'
 							onClick={this.signInTime}
 							id='si'
 							style={{color: '#4299E1', fontWeight: 'bolder', border: '1px solid #4299E1'}}
@@ -139,7 +139,7 @@ class User extends Component {
 						</div>
 					</div>
 					<div className='m-auto text-center col-lg-6 col-md-6 col-sm-12'>
-						<img src={img1} alt='img' style={{width: '120px', height: '120px'}} />
+						<img src={img1} alt='img' style={{width: '150px', height: '150px'}} />
 						{/* <button
 									className='btn btn-danger mx-auto bbb not-allowed'
 									onClick={this.signOutTime}
