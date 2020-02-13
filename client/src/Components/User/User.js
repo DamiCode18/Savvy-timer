@@ -5,7 +5,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import Moment from 'react-moment';
 
-let timerVar, timeDisp, btn, btn2, b, d;
+let timerVar, timeDisp;
 class User extends Component {
 	state = {
 		Fullname  : '',
@@ -16,7 +16,7 @@ class User extends Component {
 	};
 
 	signInTime = () => {
-		btn2 = document.getElementById('si').textContent = 'Punch out';
+		document.getElementById('si').textContent = 'Punch out';
 		this.setState({isPunched: true});
 		axios
 			.post('profile', {signIn: new Date(), date: new Date()})
@@ -41,7 +41,7 @@ class User extends Component {
 		}
 	};
 	signOutTime = () => {
-		btn2 = document.getElementById('si').textContent = 'Punch in for today';
+		document.getElementById('si').textContent = 'Punch in for today';
 		this.setState({isPunched: false});
 		axios
 			.post('profile', {signOut: new Date(), date: new Date()})
@@ -156,7 +156,7 @@ class User extends Component {
 						</div>
 					</div>
 					<div className='m-auto text-center col-lg-6 col-md-6 col-sm-12'>
-						<img src={img1} alt='img' style={{width: '150px', height: '150px', marginTop: '20px'}} />
+						<img src={img1} alt='img' style={{width: '150px', height: '150px'}} />
 						{/* <div className='text-center'>
 									<button
 										className='btn mt-5 btn-outline-info bbb'

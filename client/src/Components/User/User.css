@@ -61,6 +61,7 @@
 	.dispCard {
 		margin-left: auto;
 		margin-right: auto;
+		margin-bottom: 25px;
 	}
 	.user {
 		width: 320px;
