@@ -28,7 +28,12 @@ class Home extends Component {
 						"SavvyTimer is Great platform for time management in offices for effective tracking of employees
 						record at work!"
 					</p>
-					<input type='button' className='btn btn-info' value='Read More...' />
+					<input
+						type='button'
+						className='btn'
+						value='Read More...'
+						style={{color: '#4299E1', background: '#fff', borderRadius: '5px', border: '1px solid #fff'}}
+					/>
 				</div>
 				<div className='container'>
 					<h2 className='title text-center m-3'>Screenshot</h2>

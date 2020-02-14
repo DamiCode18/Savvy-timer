@@ -51,45 +51,6 @@ const Features = () => {
 						</p>
 					</div>
 				</div>
-				<div className='col-md-4 col-sm-4'>
-					<div className='card'>
-						<img src={img4} alt='img' />
-						<p className='m-auto'>
-							<b>Code</b>
-						</p>
-						<p>
-							Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-							velit..." "There is no one who loves pain itself, who seeks after it and wants to have it,
-							simply because it is pain...
-						</p>
-					</div>
-				</div>
-				<div className='col-md-4 col-sm-4'>
-					<div className='card'>
-						<img src={img5} alt='img' />
-						<p className='m-auto'>
-							<b>Leave</b>
-						</p>
-						<p>
-							Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-							velit..." "There is no one who loves pain itself, who seeks after it and wants to have it,
-							simply because it is pain...
-						</p>
-					</div>
-				</div>
-				<div className='col-md-4 col-sm-4'>
-					<div className='card'>
-						<img src={img6} alt='img' />
-						<p className='m-auto'>
-							<b>Stopwatch</b>
-						</p>
-						<p>
-							Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-							velit..." "There is no one who loves pain itself, who seeks after it and wants to have it,
-							simply because it is pain...
-						</p>
-					</div>
-				</div>
 			</div>
 		</div>
 	);
