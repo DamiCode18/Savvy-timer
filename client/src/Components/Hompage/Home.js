@@ -30,7 +30,7 @@ class Home extends Component {
 					</p>
 					<input
 						type='button'
-						className='btn'
+						className='btn py-2 px-4'
 						value='Read More...'
 						style={{color: '#4299E1', background: '#fff', borderRadius: '5px', border: '1px solid #fff'}}
 					/>
