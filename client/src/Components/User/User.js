@@ -83,7 +83,7 @@ class User extends Component {
 						{!this.state.isPunched ? (
 							<div>
 								<h3 id='dispname' className='pt-5' style={{color: '#0d3859', fontWeight: 'bolder'}}>
-									Welcome back {dispName},
+									Welcome back, {dispName}
 								</h3>
 								<button
 									className='btn py-2 px-3'

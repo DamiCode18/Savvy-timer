@@ -58,6 +58,9 @@
 		margin: auto;
 		text-align: center;
 	}
+	#dispname {
+		width: 250px;
+	}
 	.align {
 		text-align: left;
 	}
