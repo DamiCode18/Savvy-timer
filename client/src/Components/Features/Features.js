@@ -3,9 +3,6 @@ import './Features.css';
 import img1 from '../../images/speed.png';
 import img2 from '../../images/time (1).png';
 import img3 from '../../images/logo.png';
-import img4 from '../../images/time.png';
-import img5 from '../../images/speed.png';
-import img6 from '../../images/last-12-hours.png';
 
 const Features = () => {
 	return (
