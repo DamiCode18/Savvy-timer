@@ -43,11 +43,11 @@ class Home extends Component {
 				</div>
 				<div className='footer p-2 mt-3'>
 					<div>
-						<h6>Our Services</h6>
-						<h6>Login</h6>
-						<h6>Signup</h6>
+						<p>Our Services</p>
+						<p>Login</p>
+						<p>Signup</p>
 					</div>
-					<div className='ml-auto'>SavvyTimer &copy; 2019</div>
+					<div className='m-auto text-center'>SavvyTimer &copy; 2019</div>
 				</div>
 			</div>
 		);
