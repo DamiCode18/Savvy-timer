@@ -48,8 +48,8 @@ class App extends Component {
 							<Route path='/register' exact component={Register} />
 							<Route path='/user' exact component={User} />
 							<Route path='/admin' exact component={Admin} />
-							{/* <Route path='/leaveList' exact component={Leave} /> */}
-							{/* <Route path='*' component={NotFound} /> */}
+							<Route path='/leaveList' exact component={Leave} />
+							<Route path='*' component={NotFound} />
 						</Switch>
 					</Router>
 				</Provider>
