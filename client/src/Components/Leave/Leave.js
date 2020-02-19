@@ -33,7 +33,7 @@ class LeaveList extends Component {
 		if (!isLoaded) {
 			return (
 				<div>
-					{/* <Loader /> */}
+					<Loader />
 				</div>
 			);
 		} else {
