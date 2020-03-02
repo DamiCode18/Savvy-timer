@@ -76,6 +76,18 @@ class User extends Component {
 		const {auth} = this.props;
 		const name = auth.user.firstname;
 		const dispName = name.charAt(0).toUpperCase() + name.slice(1);
+		let today = new Date();
+		let hourNow = today.getHours();
+		let greeting;
+		if (hourNow > 18) {
+			greeting = 'Good evening!';
+		} else if (hourNow > 12) {
+			greeting = ' Good afternoon!';
+		} else if (hourNow > 0) {
+			greeting = 'Good morning!';
+		} else {
+			greeting = 'Welcome! ';
+		}
 		return (
 			<div className='userSection container'>
 				<div className='row'>
@@ -83,7 +95,7 @@ class User extends Component {
 						{!this.state.isPunched ? (
 							<div>
 								<h3 id='dispname' className='pt-5' style={{color: '#0d3859', fontWeight: 'bolder'}}>
-									Welcome back, {dispName}
+									{greeting}, {dispName}
 								</h3>
 								<button
 									className='btn py-2 px-3'
