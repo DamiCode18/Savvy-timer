@@ -64,7 +64,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 				new Profile(profileData).save().then((profile) => res.json(profile));
 			}
 		})
-		.catch((err) => res.status(404).json({profile: 'there is an error with the path'}));
+		.catch((err) => res.status(404).json({profile: 'there is no profile for this user'}));
 });
 
 module.exports = router;
