@@ -52,17 +52,19 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	}
 	if (req.body.date) profileData.date = req.body.date;
 
-	Profile.findOne({user: req.user.id}).then((profile) => {
-		if (profile) {
-			//update
-			Profile.findByIdAndUpdate(req.user.id, {$set: profileData}, {new: true}).then((profile) =>
-				res.json(profile)
-			);
-		} else {
-			//Create
-			new Profile(profileData).save().then((profile) => res.json(profile));
-		}
-	});
+	Profile.findOne({user: req.user.id})
+		.then((profile) => {
+			if (profile) {
+				//update
+				Profile.findOneAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
+					res.json(profile)
+				);
+			} else {
+				//Create
+				new Profile(profileData).save().then((profile) => res.json(profile));
+			}
+		})
+		.catch((err) => res.status(404).json({profile: 'there is an error with the path'}));
 });
 
 module.exports = router;

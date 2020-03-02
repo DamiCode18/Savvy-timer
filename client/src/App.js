@@ -15,7 +15,9 @@ import Admin from './Components/Admin/Admin';
 import Leave from './Components/Leave/Leave';
 import NotFound from './Components/NotFound/NotFound';
 
+//Hide all console logs
 console.log = function() {};
+
 //Check for token
 if (localStorage.jwtToken) {
 	//Set auth token header auth
