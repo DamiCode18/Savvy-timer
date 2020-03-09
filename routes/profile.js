@@ -40,7 +40,7 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 //@desc 	Create new user profile
 //@access 	private
 
-router.put('/', passport.authenticate('jwt', {session: false}), (req, res) => {
+router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	// Get Data to be saved to database
 	const profileData = {};
 	profileData.user = req.user.id;
@@ -54,7 +54,7 @@ router.put('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 
 	Profile.findOne({user: req.user.id})
 		.then((profile) => {
-			if (profile && req.body.signIn) {
+			if (profile) {
 				//update
 				Profile.findOneAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
 					res.json(profile)
