@@ -15,9 +15,10 @@ import Admin from './Components/Admin/Admin';
 import Leave from './Components/Leave/Leave';
 import NotFound from './Components/NotFound/NotFound';
 
-//Hide all console logs
-console.log = function() {};
-
+//Hide all console logs in Production
+if (process.env.NODE_ENV === 'production') {
+	console.log = function() {};
+}
 //Check for token
 if (localStorage.jwtToken) {
 	//Set auth token header auth
@@ -42,6 +43,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className='App'>
+				{console.log('test')}
 				<Provider store={store}>
 					<Router>
 						<Navbar />
