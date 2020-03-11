@@ -59,7 +59,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 				Profile.findOneAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
 					res.json(profile)
 				);
-			} else {
+			} else if (profile) {
 				//Create
 				new Profile(profileData).save().then((profile) => res.json(profile));
 			}

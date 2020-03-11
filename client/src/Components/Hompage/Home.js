@@ -3,9 +3,9 @@ import './Home.css';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import img1 from '../../images/login.png';
-import img2 from '../../images/admin.png';
-import img3 from '../../images/signup.png';
+import img1 from '../../images/loginpage.jpeg';
+import img2 from '../../images/upage.jpeg';
+import img3 from '../../images/registerpage.jpeg';
 import img4 from '../../images/campusM-Attendance-integrated-into-campusM-large.png';
 import Features from '../Features/Features';
 
@@ -37,9 +37,9 @@ class Home extends Component {
 				</div>
 				<div className='container'>
 					<h2 className='title text-center m-3'>Screenshot</h2>
-					<img className='p-5 img-thumbnail col-lg-4 col-sm-6' src={img1} alt='img' />
-					<img className='p-5 img-thumbnail col-lg-4 col-sm-6' src={img2} alt='img' />
-					<img className='p-5 img-thumbnail col-lg-4 col-sm-6' src={img3} alt='img' />
+					<img className='p-5 img-thumbnail col-lg-4 col-sm-6' src={img1} alt='img' style={{height: '400'}} />
+					<img className='p-5 img-thumbnail col-lg-4 col-sm-6' src={img2} alt='img' style={{height: '400'}} />
+					<img className='p-5 img-thumbnail col-lg-4 col-sm-6' src={img3} alt='img' style={{height: '400'}} />
 				</div>
 				<div className='footer p-2 mt-3'>
 					<div>
