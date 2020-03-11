@@ -8,7 +8,6 @@ import img2 from '../../images/upage.jpeg';
 import img3 from '../../images/registerpage.jpeg';
 import img4 from '../../images/campusM-Attendance-integrated-into-campusM-large.png';
 import Features from '../Features/Features';
-
 class Home extends Component {
 	componentDidMount() {
 		if (this.props.auth.isAuthenticated) {
