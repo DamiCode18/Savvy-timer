@@ -46,23 +46,27 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 	profileData.user = req.user.id;
 	if (req.body.signIn) {
 		profileData.signIn = req.body.signIn;
+	} else if (!req.body.signIn) {
+		profileData.signIn = '';
 	}
 	if (req.body.signOut) {
 		profileData.signOut = req.body.signOut;
+	} else if (!req.body.signOut) {
+		profileData.signOut = '';
 	}
 	if (req.body.date) profileData.date = req.body.date;
 
 	Profile.findOne({user: req.user.id})
 		.then((profile) => {
-			if (profile) {
-				//update
-				Profile.findOneAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
-					res.json(profile)
-				);
-			} else if (profile) {
-				//Create
-				new Profile(profileData).save().then((profile) => res.json(profile));
-			}
+			// if (profile) {
+			// 	//update
+			// 	Profile.findOneAndUpdate({user: req.user.id}, {$set: profileData}, {new: true}).then((profile) =>
+			// 		res.json(profile)
+			// 	);
+			// }
+
+			//Create
+			new Profile(profileData).save().then((profile) => res.json(profile));
 		})
 		.catch((err) => res.status(404).json({profile: 'there is no profile for this user'}));
 });
